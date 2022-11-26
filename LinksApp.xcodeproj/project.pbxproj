@@ -6,21 +6,287 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FCA7CAC3293284CF00DD549C /* links_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA7CAC2293284CF00DD549C /* links_iosApp.swift */; };
+		FCA7CAC7293284D000DD549C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA7CAC6293284D000DD549C /* Assets.xcassets */; };
+		FCA7CACA293284D000DD549C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA7CAC9293284D000DD549C /* Preview Assets.xcassets */; };
+		FCA7CAD5293284ED00DD549C /* links_macosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA7CAD4293284ED00DD549C /* links_macosApp.swift */; };
+		FCA7CAD9293284EE00DD549C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA7CAD8293284EE00DD549C /* Assets.xcassets */; };
+		FCA7CADC293284EE00DD549C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA7CADB293284EE00DD549C /* Preview Assets.xcassets */; };
+		FCA7CAF529328A5E00DD549C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA7CAF429328A5E00DD549C /* MainView.swift */; };
+		FCDCE83029328B89002B3088 /* GetLinksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE82F29328B89002B3088 /* GetLinksApi.swift */; };
+		FCDCE83229328B93002B3088 /* GetLinksLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83129328B93002B3088 /* GetLinksLocal.swift */; };
+		FCDCE83529328C9E002B3088 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83429328C9E002B3088 /* Link.swift */; };
+		FCDCE83629328CC3002B3088 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83429328C9E002B3088 /* Link.swift */; };
+		FCDCE83A29328CF9002B3088 /* Links.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83829328CF9002B3088 /* Links.xcdatamodeld */; };
+		FCDCE83B29328CF9002B3088 /* Links.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83829328CF9002B3088 /* Links.xcdatamodeld */; };
+		FCDCE83D29328E45002B3088 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83C29328E45002B3088 /* CoreDataController.swift */; };
+		FCDCE83E29328E45002B3088 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83C29328E45002B3088 /* CoreDataController.swift */; };
+		FCDCE84029328E73002B3088 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83F29328E73002B3088 /* Storable.swift */; };
+		FCDCE84129328E73002B3088 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83F29328E73002B3088 /* Storable.swift */; };
+		FCDCE8432932910C002B3088 /* LinkCoreData+Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE8422932910C002B3088 /* LinkCoreData+Storable.swift */; };
+		FCDCE8442932910C002B3088 /* LinkCoreData+Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE8422932910C002B3088 /* LinkCoreData+Storable.swift */; };
+		FCDCE84629329C6E002B3088 /* SaveLinkLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE84529329C6E002B3088 /* SaveLinkLocal.swift */; };
+		FCDCE84729329C6E002B3088 /* SaveLinkLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE84529329C6E002B3088 /* SaveLinkLocal.swift */; };
+		FCDCE84929329CD7002B3088 /* LinkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE84829329CD7002B3088 /* LinkProvider.swift */; };
+		FCDCE84A29329CD7002B3088 /* LinkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE84829329CD7002B3088 /* LinkProvider.swift */; };
+		FCDCE84D29329E35002B3088 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE84C29329E35002B3088 /* MainViewModel.swift */; };
+		FCDCE8502932A5D8002B3088 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE84F2932A5D8002B3088 /* MainView.swift */; };
+		FCDCE8522932A5F4002B3088 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE8512932A5F4002B3088 /* MainViewModel.swift */; };
+		FCDCE8532932A62C002B3088 /* GetLinksLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83129328B93002B3088 /* GetLinksLocal.swift */; };
+		FCDCE8592932A829002B3088 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE8582932A829002B3088 /* WebView.swift */; };
+		FCDCE85B2932A83D002B3088 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE85A2932A83D002B3088 /* WebView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FCA7CABF293284CF00DD549C /* links-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "links-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA7CAC2293284CF00DD549C /* links_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = links_iosApp.swift; sourceTree = "<group>"; };
+		FCA7CAC6293284D000DD549C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCA7CAC9293284D000DD549C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FCA7CAD2293284ED00DD549C /* links-macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "links-macos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCA7CAD4293284ED00DD549C /* links_macosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = links_macosApp.swift; sourceTree = "<group>"; };
+		FCA7CAD8293284EE00DD549C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCA7CADB293284EE00DD549C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FCA7CADD293284EE00DD549C /* links_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = links_macos.entitlements; sourceTree = "<group>"; };
+		FCA7CAF429328A5E00DD549C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FCDCE82F29328B89002B3088 /* GetLinksApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLinksApi.swift; sourceTree = "<group>"; };
+		FCDCE83129328B93002B3088 /* GetLinksLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLinksLocal.swift; sourceTree = "<group>"; };
+		FCDCE83429328C9E002B3088 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		FCDCE83929328CF9002B3088 /* Links.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Links.xcdatamodel; sourceTree = "<group>"; };
+		FCDCE83C29328E45002B3088 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		FCDCE83F29328E73002B3088 /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
+		FCDCE8422932910C002B3088 /* LinkCoreData+Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkCoreData+Storable.swift"; sourceTree = "<group>"; };
+		FCDCE84529329C6E002B3088 /* SaveLinkLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLinkLocal.swift; sourceTree = "<group>"; };
+		FCDCE84829329CD7002B3088 /* LinkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkProvider.swift; sourceTree = "<group>"; };
+		FCDCE84C29329E35002B3088 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		FCDCE84F2932A5D8002B3088 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FCDCE8512932A5F4002B3088 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		FCDCE8582932A829002B3088 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		FCDCE85A2932A83D002B3088 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCA7CABC293284CF00DD549C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA7CACF293284ED00DD549C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		FCA7CAB4293284A200DD549C = {
 			isa = PBXGroup;
 			children = (
+				FCA7CAE12932850700DD549C /* Shared */,
+				FCA7CAC1293284CF00DD549C /* links-ios */,
+				FCA7CAD3293284ED00DD549C /* links-macos */,
+				FCA7CAC0293284CF00DD549C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
+		FCA7CAC0293284CF00DD549C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCA7CABF293284CF00DD549C /* links-ios.app */,
+				FCA7CAD2293284ED00DD549C /* links-macos.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCA7CAC1293284CF00DD549C /* links-ios */ = {
+			isa = PBXGroup;
+			children = (
+				FCDCE84B29329E22002B3088 /* Main */,
+				FCA7CAC2293284CF00DD549C /* links_iosApp.swift */,
+				FCA7CAC6293284D000DD549C /* Assets.xcassets */,
+				FCA7CAC8293284D000DD549C /* Preview Content */,
+			);
+			path = "links-ios";
+			sourceTree = "<group>";
+		};
+		FCA7CAC8293284D000DD549C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FCA7CAC9293284D000DD549C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FCA7CAD3293284ED00DD549C /* links-macos */ = {
+			isa = PBXGroup;
+			children = (
+				FCA7CAE8293285C700DD549C /* Main */,
+				FCA7CAD4293284ED00DD549C /* links_macosApp.swift */,
+				FCA7CAD8293284EE00DD549C /* Assets.xcassets */,
+				FCA7CADD293284EE00DD549C /* links_macos.entitlements */,
+				FCA7CADA293284EE00DD549C /* Preview Content */,
+			);
+			path = "links-macos";
+			sourceTree = "<group>";
+		};
+		FCA7CADA293284EE00DD549C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FCA7CADB293284EE00DD549C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FCA7CAE12932850700DD549C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FCA7CAE32932853700DD549C /* Links */,
+				FCA7CAE62932856600DD549C /* Storage */,
+				FCA7CAE22932851A00DD549C /* Http */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		FCA7CAE22932851A00DD549C /* Http */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		FCA7CAE32932853700DD549C /* Links */ = {
+			isa = PBXGroup;
+			children = (
+				FCDCE83329328C91002B3088 /* Entity */,
+				FCA7CAE52932854C00DD549C /* Interactor */,
+				FCA7CAE42932854100DD549C /* Adapter */,
+			);
+			path = Links;
+			sourceTree = "<group>";
+		};
+		FCA7CAE42932854100DD549C /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				FCDCE82F29328B89002B3088 /* GetLinksApi.swift */,
+				FCDCE83129328B93002B3088 /* GetLinksLocal.swift */,
+				FCDCE84529329C6E002B3088 /* SaveLinkLocal.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		FCA7CAE52932854C00DD549C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FCDCE84829329CD7002B3088 /* LinkProvider.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FCA7CAE62932856600DD549C /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				FCDCE83F29328E73002B3088 /* Storable.swift */,
+				FCDCE83729328CEA002B3088 /* CoreData */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		FCA7CAE8293285C700DD549C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FCDCE84F2932A5D8002B3088 /* MainView.swift */,
+				FCDCE8512932A5F4002B3088 /* MainViewModel.swift */,
+				FCDCE8582932A829002B3088 /* WebView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		FCDCE83329328C91002B3088 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FCDCE83429328C9E002B3088 /* Link.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FCDCE83729328CEA002B3088 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FCDCE83829328CF9002B3088 /* Links.xcdatamodeld */,
+				FCDCE83C29328E45002B3088 /* CoreDataController.swift */,
+				FCDCE8422932910C002B3088 /* LinkCoreData+Storable.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FCDCE84B29329E22002B3088 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FCA7CAF429328A5E00DD549C /* MainView.swift */,
+				FCDCE84C29329E35002B3088 /* MainViewModel.swift */,
+				FCDCE85A2932A83D002B3088 /* WebView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCA7CABE293284CF00DD549C /* links-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCA7CACB293284D000DD549C /* Build configuration list for PBXNativeTarget "links-ios" */;
+			buildPhases = (
+				FCA7CABB293284CF00DD549C /* Sources */,
+				FCA7CABC293284CF00DD549C /* Frameworks */,
+				FCA7CABD293284CF00DD549C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "links-ios";
+			productName = "links-ios";
+			productReference = FCA7CABF293284CF00DD549C /* links-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCA7CAD1293284ED00DD549C /* links-macos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCA7CADE293284EE00DD549C /* Build configuration list for PBXNativeTarget "links-macos" */;
+			buildPhases = (
+				FCA7CACE293284ED00DD549C /* Sources */,
+				FCA7CACF293284ED00DD549C /* Frameworks */,
+				FCA7CAD0293284ED00DD549C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "links-macos";
+			productName = "links-macos";
+			productReference = FCA7CAD2293284ED00DD549C /* links-macos.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		FCA7CAB5293284A200DD549C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					FCA7CABE293284CF00DD549C = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					FCA7CAD1293284ED00DD549C = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
 			};
 			buildConfigurationList = FCA7CAB8293284A200DD549C /* Build configuration list for PBXProject "LinksApp" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -31,23 +297,412 @@
 				Base,
 			);
 			mainGroup = FCA7CAB4293284A200DD549C;
+			productRefGroup = FCA7CAC0293284CF00DD549C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				FCA7CABE293284CF00DD549C /* links-ios */,
+				FCA7CAD1293284ED00DD549C /* links-macos */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCA7CABD293284CF00DD549C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA7CACA293284D000DD549C /* Preview Assets.xcassets in Resources */,
+				FCA7CAC7293284D000DD549C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA7CAD0293284ED00DD549C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA7CADC293284EE00DD549C /* Preview Assets.xcassets in Resources */,
+				FCA7CAD9293284EE00DD549C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCA7CABB293284CF00DD549C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCDCE83529328C9E002B3088 /* Link.swift in Sources */,
+				FCA7CAC3293284CF00DD549C /* links_iosApp.swift in Sources */,
+				FCDCE85B2932A83D002B3088 /* WebView.swift in Sources */,
+				FCA7CAF529328A5E00DD549C /* MainView.swift in Sources */,
+				FCDCE8432932910C002B3088 /* LinkCoreData+Storable.swift in Sources */,
+				FCDCE84929329CD7002B3088 /* LinkProvider.swift in Sources */,
+				FCDCE83D29328E45002B3088 /* CoreDataController.swift in Sources */,
+				FCDCE83A29328CF9002B3088 /* Links.xcdatamodeld in Sources */,
+				FCDCE84629329C6E002B3088 /* SaveLinkLocal.swift in Sources */,
+				FCDCE84029328E73002B3088 /* Storable.swift in Sources */,
+				FCDCE83229328B93002B3088 /* GetLinksLocal.swift in Sources */,
+				FCDCE83029328B89002B3088 /* GetLinksApi.swift in Sources */,
+				FCDCE84D29329E35002B3088 /* MainViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA7CACE293284ED00DD549C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCDCE83629328CC3002B3088 /* Link.swift in Sources */,
+				FCDCE8502932A5D8002B3088 /* MainView.swift in Sources */,
+				FCDCE83E29328E45002B3088 /* CoreDataController.swift in Sources */,
+				FCDCE8442932910C002B3088 /* LinkCoreData+Storable.swift in Sources */,
+				FCDCE84129328E73002B3088 /* Storable.swift in Sources */,
+				FCDCE8522932A5F4002B3088 /* MainViewModel.swift in Sources */,
+				FCA7CAD5293284ED00DD549C /* links_macosApp.swift in Sources */,
+				FCDCE84A29329CD7002B3088 /* LinkProvider.swift in Sources */,
+				FCDCE84729329C6E002B3088 /* SaveLinkLocal.swift in Sources */,
+				FCDCE8592932A829002B3088 /* WebView.swift in Sources */,
+				FCDCE8532932A62C002B3088 /* GetLinksLocal.swift in Sources */,
+				FCDCE83B29328CF9002B3088 /* Links.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		FCA7CAB9293284A200DD549C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
 		FCA7CABA293284A200DD549C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Release;
+		};
+		FCA7CACC293284D000DD549C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"links-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Links;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.willasaskara.links-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FCA7CACD293284D000DD549C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"links-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Links;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.willasaskara.links-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCA7CADF293284EE00DD549C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "links-macos/links_macos.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"links-macos/Preview Content\"";
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Links;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.willasaskara.links-macos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FCA7CAE0293284EE00DD549C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "links-macos/links_macos.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"links-macos/Preview Content\"";
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Links;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.willasaskara.links-macos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -63,7 +718,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		FCA7CACB293284D000DD549C /* Build configuration list for PBXNativeTarget "links-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCA7CACC293284D000DD549C /* Debug */,
+				FCA7CACD293284D000DD549C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCA7CADE293284EE00DD549C /* Build configuration list for PBXNativeTarget "links-macos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCA7CADF293284EE00DD549C /* Debug */,
+				FCA7CAE0293284EE00DD549C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FCDCE83829328CF9002B3088 /* Links.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FCDCE83929328CF9002B3088 /* Links.xcdatamodel */,
+			);
+			currentVersion = FCDCE83929328CF9002B3088 /* Links.xcdatamodel */;
+			path = Links.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FCA7CAB5293284A200DD549C /* Project object */;
 }
