@@ -19,14 +19,7 @@ struct LinkProvider {
 
     func getLink() -> AnyPublisher<[Link], Error> {
 //        getLinksLocal()
-        Just([
-            Link(
-                id: UUID(),
-                url: URL(string: "https://nohello.net/en/")!,
-                title: "Website no hello",
-                desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            )
-        ])
+        Just(Link.dummy(count: 50))
         .setFailureType(to: Error.self)
         .eraseToAnyPublisher()
     }

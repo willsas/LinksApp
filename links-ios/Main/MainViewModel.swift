@@ -7,38 +7,40 @@ import Foundation
 final class MainViewModel: ObservableObject {
 
     @MainActor @Published var links = [Link]()
+    @MainActor @Published var error = ""
 
-    private let getLink: () -> AnyPublisher<[Link], Error>
-
+    private let getLinks: () -> AnyPublisher<[Link], Error>
+    private let saveLink: (Link) -> AnyPublisher<Bool, Error>
+    
     private var cancellables = Set<AnyCancellable>()
 
     init(
-        getLink: @escaping () -> AnyPublisher<[Link], Error>
+        getLinks: @escaping () -> AnyPublisher<[Link], Error>,
+        saveLink: @escaping (Link) -> AnyPublisher<Bool, Error>
     ) {
-        self.getLink = getLink
+        self.getLinks = getLinks
+        self.saveLink = saveLink
     }
 
     @MainActor
-    func getLinks() {
-        getLink().sink(
-            receiveCompletion: { completion in
-                switch completion {
-                case let .failure(err):
-                    print(err)
-                case .finished:
-                    break
+    func onAppear() {
+        getLinks()
+            .sink(
+                receiveCompletion: { [weak self] completion in
+                    if case let .failure(err) = completion {
+                        self?.error = err.localizedDescription
+                    }
+                }, receiveValue: { [weak self] links in
+                    self?.links = links
                 }
-            }, receiveValue: { [weak self] links in
-                self?.links = links
-            }
-        )
-        .store(in: &cancellables)
+            )
+            .store(in: &cancellables)
     }
 }
 
 extension MainViewModel {
     static func make() -> Self {
         let linkProvider = LinkProvider.make()
-        return .init(getLink: linkProvider.getLink)
+        return .init(getLinks: linkProvider.getLink, saveLink: linkProvider.saveLink)
     }
 }

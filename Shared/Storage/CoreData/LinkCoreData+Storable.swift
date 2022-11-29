@@ -24,6 +24,7 @@ struct LinkCoreDataStorable: Storable {
                 linkCoreData.title = data.title
                 linkCoreData.url = data.url
                 linkCoreData.desc = data.desc
+                linkCoreData.type = data.type
 
                 if backgroundContext.hasChanges {
                     do {
@@ -76,9 +77,11 @@ struct LinkCoreDataStorable: Storable {
 
 private extension Link {
     static func convertFrom(linkCoreData link: LinkCoreData) -> Self? {
-        guard let id = link.id, let title = link.title, let url = link.url, let desc = link.desc
+        guard let id = link.id, let title = link.title,
+              let url = link.url, let desc = link.desc,
+              let type = link.type
         else { return nil }
-        return .init(id: id, url: url, title: title, desc: desc)
+        return .init(id: id, url: url, title: title, desc: desc, type: type)
     }
 }
 

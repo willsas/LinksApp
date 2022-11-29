@@ -11,7 +11,7 @@ struct MainView: View {
         NavigationView {
             List(viewModel.links) { link in
                 NavigationLink(
-                    destination: WebView(url: link.url),
+                    destination: DetailView(link: link),
                     label: {
                         VStack(alignment: .leading) {
                             Text(link.title)
@@ -27,20 +27,22 @@ struct MainView: View {
                 )
             }.toolbar {
                 ToolbarItem {
-                    Menu {} label: {
+                    Menu {
+                        
+                    } label: {
                         Label("Add", systemImage: "plus")
                     }
                 }
             }
-            .listStyle(PlainListStyle())
             .navigationTitle("Links")
         }
 
         .onAppear {
-            viewModel.getLinks()
+            viewModel.onAppear()
         }
     }
 }
+
 
 extension MainView {
     static func make() -> Self {

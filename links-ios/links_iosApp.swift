@@ -11,7 +11,7 @@ import SwiftUI
 struct links_iosApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView.make()
+            HomeView.make()
         }
     }
 }

@@ -8,19 +8,21 @@ final class MainViewModel: ObservableObject {
 
     @MainActor @Published var links = [Link]()
 
-    private let getLink: () -> AnyPublisher<[Link], Error>
-
+    private let getLinks: () -> AnyPublisher<[Link], Error>
+    private let saveLink: (Link) -> AnyPublisher<Bool, Error>
     private var cancellables = Set<AnyCancellable>()
 
     init(
-        getLink: @escaping () -> AnyPublisher<[Link], Error>
+        getLinks: @escaping () -> AnyPublisher<[Link], Error>,
+        saveLink: @escaping (Link) -> AnyPublisher<Bool, Error>
     ) {
-        self.getLink = getLink
+        self.getLinks = getLinks
+        self.saveLink = saveLink
     }
 
     @MainActor
-    func getLinks() {
-        getLink().sink(
+    func onAppear() {
+        getLinks().sink(
             receiveCompletion: { completion in
                 switch completion {
                 case let .failure(err):
@@ -34,11 +36,22 @@ final class MainViewModel: ObservableObject {
         )
         .store(in: &cancellables)
     }
+    
+    @MainActor
+    func addNew() {
+        saveLink(.init(id: UUID(), url: URL(string: "https://www.google.com")!, title: "Edit Title", desc: "Edit desc"))
+            .sink(receiveCompletion: { _ in
+                
+            }, receiveValue: { [weak self] isSuccess in
+                self?.onAppear()
+            })
+            .store(in: &cancellables)
+    }
 }
 
 extension MainViewModel {
     static func make() -> Self {
         let linkProvider = LinkProvider.make()
-        return .init(getLink: linkProvider.getLink)
+        return .init(getLinks: linkProvider.getLink, saveLink: linkProvider.saveLink)
     }
 }

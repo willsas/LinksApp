@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC30FA1129365A430017FE1C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1029365A430017FE1C /* HomeView.swift */; };
+		FC30FA1429365F210017FE1C /* LinksColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1329365F210017FE1C /* LinksColor.swift */; };
+		FC30FA16293661DB0017FE1C /* LinksColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1329365F210017FE1C /* LinksColor.swift */; };
+		FC30FA1829366F6C0017FE1C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1729366F6C0017FE1C /* HomeViewModel.swift */; };
+		FC30FA1A293678970017FE1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC30FA19293678970017FE1C /* Assets.xcassets */; };
+		FC30FA1B293678970017FE1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC30FA19293678970017FE1C /* Assets.xcassets */; };
+		FC30FA1D2936790A0017FE1C /* LinksImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1C2936790A0017FE1C /* LinksImage.swift */; };
+		FC30FA1E2936790A0017FE1C /* LinksImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1C2936790A0017FE1C /* LinksImage.swift */; };
 		FCA7CAC3293284CF00DD549C /* links_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA7CAC2293284CF00DD549C /* links_iosApp.swift */; };
 		FCA7CAC7293284D000DD549C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA7CAC6293284D000DD549C /* Assets.xcassets */; };
 		FCA7CACA293284D000DD549C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA7CAC9293284D000DD549C /* Preview Assets.xcassets */; };
@@ -36,9 +44,16 @@
 		FCDCE8532932A62C002B3088 /* GetLinksLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83129328B93002B3088 /* GetLinksLocal.swift */; };
 		FCDCE8592932A829002B3088 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE8582932A829002B3088 /* WebView.swift */; };
 		FCDCE85B2932A83D002B3088 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE85A2932A83D002B3088 /* WebView.swift */; };
+		FCFDB8272934E16400A3942A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDB8262934E16400A3942A /* DetailView.swift */; };
+		FCFDB82A293514D800A3942A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDB829293514D800A3942A /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC30FA1029365A430017FE1C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FC30FA1329365F210017FE1C /* LinksColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksColor.swift; sourceTree = "<group>"; };
+		FC30FA1729366F6C0017FE1C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FC30FA19293678970017FE1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC30FA1C2936790A0017FE1C /* LinksImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksImage.swift; sourceTree = "<group>"; };
 		FCA7CABF293284CF00DD549C /* links-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "links-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA7CAC2293284CF00DD549C /* links_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = links_iosApp.swift; sourceTree = "<group>"; };
 		FCA7CAC6293284D000DD549C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +78,8 @@
 		FCDCE8512932A5F4002B3088 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		FCDCE8582932A829002B3088 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		FCDCE85A2932A83D002B3088 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		FCFDB8262934E16400A3942A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		FCFDB829293514D800A3942A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +100,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC30FA0F29365A380017FE1C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC30FA1029365A430017FE1C /* HomeView.swift */,
+				FC30FA1729366F6C0017FE1C /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FC30FA1229365F140017FE1C /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				FC30FA1329365F210017FE1C /* LinksColor.swift */,
+				FC30FA1C2936790A0017FE1C /* LinksImage.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		FCA7CAB4293284A200DD549C = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +140,8 @@
 		FCA7CAC1293284CF00DD549C /* links-ios */ = {
 			isa = PBXGroup;
 			children = (
+				FC30FA0F29365A380017FE1C /* Home */,
+				FCFDB8252934E15500A3942A /* Detail */,
 				FCDCE84B29329E22002B3088 /* Main */,
 				FCA7CAC2293284CF00DD549C /* links_iosApp.swift */,
 				FCA7CAC6293284D000DD549C /* Assets.xcassets */,
@@ -124,6 +161,7 @@
 		FCA7CAD3293284ED00DD549C /* links-macos */ = {
 			isa = PBXGroup;
 			children = (
+				FCFDB828293514C500A3942A /* Detail */,
 				FCA7CAE8293285C700DD549C /* Main */,
 				FCA7CAD4293284ED00DD549C /* links_macosApp.swift */,
 				FCA7CAD8293284EE00DD549C /* Assets.xcassets */,
@@ -144,9 +182,11 @@
 		FCA7CAE12932850700DD549C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				FC30FA1229365F140017FE1C /* Constant */,
 				FCA7CAE32932853700DD549C /* Links */,
 				FCA7CAE62932856600DD549C /* Storage */,
 				FCA7CAE22932851A00DD549C /* Http */,
+				FC30FA19293678970017FE1C /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -233,6 +273,22 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		FCFDB8252934E15500A3942A /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FCFDB8262934E16400A3942A /* DetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		FCFDB828293514C500A3942A /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FCFDB829293514D800A3942A /* DetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCA7CACA293284D000DD549C /* Preview Assets.xcassets in Resources */,
+				FC30FA1A293678970017FE1C /* Assets.xcassets in Resources */,
 				FCA7CAC7293284D000DD549C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCA7CADC293284EE00DD549C /* Preview Assets.xcassets in Resources */,
+				FC30FA1B293678970017FE1C /* Assets.xcassets in Resources */,
 				FCA7CAD9293284EE00DD549C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,9 +391,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC30FA1829366F6C0017FE1C /* HomeViewModel.swift in Sources */,
+				FC30FA1D2936790A0017FE1C /* LinksImage.swift in Sources */,
 				FCDCE83529328C9E002B3088 /* Link.swift in Sources */,
 				FCA7CAC3293284CF00DD549C /* links_iosApp.swift in Sources */,
 				FCDCE85B2932A83D002B3088 /* WebView.swift in Sources */,
+				FC30FA1129365A430017FE1C /* HomeView.swift in Sources */,
+				FCFDB8272934E16400A3942A /* DetailView.swift in Sources */,
+				FC30FA1429365F210017FE1C /* LinksColor.swift in Sources */,
 				FCA7CAF529328A5E00DD549C /* MainView.swift in Sources */,
 				FCDCE8432932910C002B3088 /* LinkCoreData+Storable.swift in Sources */,
 				FCDCE84929329CD7002B3088 /* LinkProvider.swift in Sources */,
@@ -357,10 +420,13 @@
 				FCDCE8502932A5D8002B3088 /* MainView.swift in Sources */,
 				FCDCE83E29328E45002B3088 /* CoreDataController.swift in Sources */,
 				FCDCE8442932910C002B3088 /* LinkCoreData+Storable.swift in Sources */,
+				FC30FA1E2936790A0017FE1C /* LinksImage.swift in Sources */,
 				FCDCE84129328E73002B3088 /* Storable.swift in Sources */,
 				FCDCE8522932A5F4002B3088 /* MainViewModel.swift in Sources */,
 				FCA7CAD5293284ED00DD549C /* links_macosApp.swift in Sources */,
+				FCFDB82A293514D800A3942A /* DetailView.swift in Sources */,
 				FCDCE84A29329CD7002B3088 /* LinkProvider.swift in Sources */,
+				FC30FA16293661DB0017FE1C /* LinksColor.swift in Sources */,
 				FCDCE84729329C6E002B3088 /* SaveLinkLocal.swift in Sources */,
 				FCDCE8592932A829002B3088 /* WebView.swift in Sources */,
 				FCDCE8532932A62C002B3088 /* GetLinksLocal.swift in Sources */,
