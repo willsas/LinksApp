@@ -44,6 +44,7 @@
 		FCDCE8532932A62C002B3088 /* GetLinksLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE83129328B93002B3088 /* GetLinksLocal.swift */; };
 		FCDCE8592932A829002B3088 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE8582932A829002B3088 /* WebView.swift */; };
 		FCDCE85B2932A83D002B3088 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE85A2932A83D002B3088 /* WebView.swift */; };
+		FCE66396293900240003B0E7 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE66395293900240003B0E7 /* AddCategoryView.swift */; };
 		FCFDB8272934E16400A3942A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDB8262934E16400A3942A /* DetailView.swift */; };
 		FCFDB82A293514D800A3942A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDB829293514D800A3942A /* DetailView.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		FCDCE8512932A5F4002B3088 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		FCDCE8582932A829002B3088 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		FCDCE85A2932A83D002B3088 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		FCE66395293900240003B0E7 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 		FCFDB8262934E16400A3942A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FCFDB829293514D800A3942A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 		FCA7CAC1293284CF00DD549C /* links-ios */ = {
 			isa = PBXGroup;
 			children = (
+				FCE663942939000C0003B0E7 /* Category */,
 				FC30FA0F29365A380017FE1C /* Home */,
 				FCFDB8252934E15500A3942A /* Detail */,
 				FCDCE84B29329E22002B3088 /* Main */,
@@ -182,6 +185,7 @@
 		FCA7CAE12932850700DD549C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				FCE663932938FD160003B0E7 /* Extension */,
 				FC30FA1229365F140017FE1C /* Constant */,
 				FCA7CAE32932853700DD549C /* Links */,
 				FCA7CAE62932856600DD549C /* Storage */,
@@ -271,6 +275,21 @@
 				FCDCE85A2932A83D002B3088 /* WebView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		FCE663932938FD160003B0E7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FCE663942939000C0003B0E7 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FCE66395293900240003B0E7 /* AddCategoryView.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		FCFDB8252934E15500A3942A /* Detail */ = {
@@ -396,6 +415,7 @@
 				FCDCE83529328C9E002B3088 /* Link.swift in Sources */,
 				FCA7CAC3293284CF00DD549C /* links_iosApp.swift in Sources */,
 				FCDCE85B2932A83D002B3088 /* WebView.swift in Sources */,
+				FCE66396293900240003B0E7 /* AddCategoryView.swift in Sources */,
 				FC30FA1129365A430017FE1C /* HomeView.swift in Sources */,
 				FCFDB8272934E16400A3942A /* DetailView.swift in Sources */,
 				FC30FA1429365F210017FE1C /* LinksColor.swift in Sources */,

@@ -4,7 +4,7 @@
 import Combine
 import Foundation
 
-struct LinkCategories: Identifiable {
+struct LinkCategory: Identifiable {
     var id = UUID()
     var title: String
     var links: [Link]
@@ -12,7 +12,7 @@ struct LinkCategories: Identifiable {
 
 final class HomeViewModel: ObservableObject {
 
-    @MainActor @Published var categoriesLinks = [LinkCategories]()
+    @MainActor @Published var categoriesLinks = [LinkCategory]()
     @MainActor @Published var error = ""
 
     private let getLinks: () -> AnyPublisher<[Link], Error>
@@ -40,20 +40,32 @@ final class HomeViewModel: ObservableObject {
     }
     
     @MainActor
+    func refresh() {
+        onAppear()
+    }
+    
+    @MainActor
     private func processLinks(_ links: [Link]) {
-        let dict = Dictionary(grouping: links, by: { $0.type })
+        let allCategories = appendAllLinksCategoriesTo(links: links)
+        let groupedCategories = groupedCategories(links: links)
+       
+        categoriesLinks = [allCategories, groupedCategories].flatMap { $0 }
+    }
+    
+    private func appendAllLinksCategoriesTo(links: [Link]) -> [LinkCategory] {
         let allLinks = Dictionary(grouping: links, by: { $0.type })
             .flatMap { $0.value }
         
-        var categories = [LinkCategories]()
+        var categories = [LinkCategory]()
         categories.append(.init(title: "All Links", links: allLinks))
         
-        let categoriesLinks = Dictionary(grouping: links, by: { $0.type }).map{ key, value in
-            LinkCategories(title: key, links: value)
+        return categories
+    }
+    
+    private func groupedCategories(links: [Link]) -> [LinkCategory] {
+        Dictionary(grouping: links, by: { $0.type }).map{ key, value in
+            LinkCategory(title: key, links: value)
         }
-        categories.append(contentsOf: categoriesLinks)
-        
-        self.categoriesLinks = categories
     }
 }
 

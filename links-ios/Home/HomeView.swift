@@ -12,6 +12,8 @@ struct HomeView: View {
     let height: CGFloat = 120
 
     @ObservedObject var viewModel: HomeViewModel
+    
+    @State var presentAddCategory: Bool = false
 
     var body: some View {
         NavigationView {
@@ -33,15 +35,16 @@ struct HomeView: View {
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
                 }
             }
-          
+            .refreshable { viewModel.refresh() }
             .navigationTitle("Links")
-            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Edit") {}
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Button("Add Category") {}
+                    Button("Add Category") {
+                        presentAddCategory.toggle()
+                    }
                     Button {
                     } label: {
                         HStack(alignment: .center) {
@@ -55,6 +58,9 @@ struct HomeView: View {
         }
         .onAppear {
             viewModel.onAppear()
+        }
+        .sheet(isPresented: $presentAddCategory) {
+            AddCategoryView()
         }
     }
 }
