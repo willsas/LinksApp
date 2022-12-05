@@ -25,6 +25,7 @@ struct LinkCoreDataStorable: Storable {
                 linkCoreData.url = data.url
                 linkCoreData.desc = data.desc
                 linkCoreData.type = data.type
+                linkCoreData.hexColor = data.hexColor
 
                 if backgroundContext.hasChanges {
                     do {
@@ -79,9 +80,10 @@ private extension Link {
     static func convertFrom(linkCoreData link: LinkCoreData) -> Self? {
         guard let id = link.id, let title = link.title,
               let url = link.url, let desc = link.desc,
-              let type = link.type
+              let type = link.type,
+              let hexColor = link.hexColor
         else { return nil }
-        return .init(id: id, url: url, title: title, desc: desc, type: type)
+        return .init(id: id, url: url, title: title, desc: desc, type: type, hexColor: hexColor)
     }
 }
 

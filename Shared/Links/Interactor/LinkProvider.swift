@@ -18,10 +18,10 @@ struct LinkProvider {
     }
 
     func getLink() -> AnyPublisher<[Link], Error> {
-//        getLinksLocal()
-        Just(Link.dummy(count: 50))
-        .setFailureType(to: Error.self)
-        .eraseToAnyPublisher()
+        getLinksLocal()
+//        Just(Link.dummy(count: 50))
+//        .setFailureType(to: Error.self)
+//        .eraseToAnyPublisher()
     }
 
     func saveLink(_ link: Link) -> AnyPublisher<Bool, Error> {

@@ -1,7 +1,6 @@
 // Created for LinksApp in 2022
 // Using Swift 5.0 
         
-
 import Foundation
 
 public struct Link: Identifiable {
@@ -10,6 +9,7 @@ public struct Link: Identifiable {
     public let title: String
     public let desc: String
     public let type: String
+    public let hexColor: String
 }
 
 public extension Link {
@@ -20,7 +20,8 @@ public extension Link {
                 url: URL(string: "https://www.google/\(count)")!,
                 title: "title \(count)",
                 desc: "lorem ipsum dor sit amet blablablaa asnuan able",
-                type: "type \(Int.random(in: 0...10))"
+                type: "type \(Int.random(in: 0...10))",
+                hexColor: "#fffff"
             )
         }
     }

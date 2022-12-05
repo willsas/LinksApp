@@ -1,18 +1,13 @@
 // Created for LinksApp in 2022
-// Using Swift 5.0 
-        
+// Using Swift 5.0
 
 import SwiftUI
 
-let allColors = (1...12).map { _ in LinksColor.random }
-
 struct AddCategoryView: View {
-    
+
     @Environment(\.presentationMode) var presentationMode
-    
-    @State var name = ""
-    @State var color = allColors.first!
-    
+    @ObservedObject var viewModel: AddCategoryViewModel
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -26,9 +21,9 @@ struct AddCategoryView: View {
                                 LinksImage.folderOpen
                                     .resizable()
                                     .frame(width: 52, height: 52)
-                                    .foregroundColor(color)
-                                
-                                TextField("Name", text: $name)
+                                    .foregroundColor(viewModel.color)
+
+                                TextField("Name", text: $viewModel.name)
                                     .font(.system(size: 22, weight: .bold, design: .rounded))
                                     .frame(height: 56)
                                     .background(LinksColor.background)
@@ -39,15 +34,23 @@ struct AddCategoryView: View {
                         }
                         .cornerRadius(12)
                         .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
-                        
+
                         ZStack {
                             LinksColor.white
-                            ColorSwatchView(selection: $color)
+                            ColorSwatchView(
+                                selection: $viewModel.color,
+                                colors: viewModel.allColors
+                            )
                             .padding(16)
                         }
                         .cornerRadius(12)
                         .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     }
+                }
+            }
+            .onReceive(viewModel.$isSuccess) { isSuccess in
+                if isSuccess {
+                    presentationMode.wrappedValue.dismiss()
                 }
             }
             .navigationTitle("Add Categories")
@@ -59,21 +62,23 @@ struct AddCategoryView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add") {}
+                    Button("Add") {
+                        viewModel.save()
+                    }
                 }
             }
         }
-      
+
     }
 }
 
 private struct ColorSwatchView: View {
 
     @Binding var selection: Color
-    
-    let colors = allColors
+
+    let colors: [Color]
     let columns = [GridItem(.adaptive(minimum: 50))]
-    
+
     var body: some View {
 
         LazyVGrid(columns: columns, spacing: 16) {
@@ -89,7 +94,7 @@ private struct ColorSwatchView: View {
 
                     if selection == color {
                         Circle()
-                        .stroke(LinksColor.background, lineWidth: 5)
+                            .stroke(LinksColor.background, lineWidth: 5)
                             .frame(width: 54, height: 54)
                     }
                 }
@@ -99,8 +104,14 @@ private struct ColorSwatchView: View {
     }
 }
 
-struct AddCategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddCategoryView()
+extension AddCategoryView {
+    static func make() -> Self {
+        .init(viewModel: .make())
     }
 }
+
+// struct AddCategoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddCategoryView()
+//    }
+// }

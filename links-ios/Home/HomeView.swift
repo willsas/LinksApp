@@ -26,7 +26,8 @@ struct HomeView: View {
                         ForEach(viewModel.categoriesLinks) { category in
                             CardView(
                                 title: category.title ,
-                                totalLink: "\(category.links.count) links"
+                                totalLink: "\(category.links.count) links",
+                                color: category.color
                             )
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
                                 .frame(height: height)
@@ -60,7 +61,7 @@ struct HomeView: View {
             viewModel.onAppear()
         }
         .sheet(isPresented: $presentAddCategory) {
-            AddCategoryView()
+            AddCategoryView.make()
         }
     }
 }
@@ -68,13 +69,15 @@ struct HomeView: View {
 private struct CardView: View {
     var title: String
     var totalLink: String
+    var color: Color
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 LinksImage.folderOpen
                     .resizable()
                     .frame(width: 52, height: 52)
-                    .foregroundColor(LinksColor.random)
+                    .foregroundColor(color)
                 Spacer()
             }
             VStack(alignment: .leading, spacing: 2) {
