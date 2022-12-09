@@ -110,8 +110,8 @@ extension AddCategoryView {
     }
 }
 
-// struct AddCategoryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddCategoryView()
-//    }
-// }
+ struct AddCategoryView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddCategoryView(viewModel: .make())
+    }
+ }

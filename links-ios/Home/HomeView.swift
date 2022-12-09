@@ -14,6 +14,7 @@ struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     
     @State var presentAddCategory: Bool = false
+    @State var presentNewLink: Bool = false
 
     var body: some View {
         NavigationView {
@@ -47,6 +48,7 @@ struct HomeView: View {
                         presentAddCategory.toggle()
                     }
                     Button {
+                        presentNewLink.toggle()
                     } label: {
                         HStack(alignment: .center) {
                             Image(systemName: "plus.circle.fill")
@@ -62,6 +64,9 @@ struct HomeView: View {
         }
         .sheet(isPresented: $presentAddCategory) {
             AddCategoryView.make()
+        }
+        .sheet(isPresented: $presentNewLink) {
+            NewLinkView.make()
         }
     }
 }

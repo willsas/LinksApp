@@ -15,6 +15,8 @@
 		FC30FA1B293678970017FE1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC30FA19293678970017FE1C /* Assets.xcassets */; };
 		FC30FA1D2936790A0017FE1C /* LinksImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1C2936790A0017FE1C /* LinksImage.swift */; };
 		FC30FA1E2936790A0017FE1C /* LinksImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1C2936790A0017FE1C /* LinksImage.swift */; };
+		FC768BD929439B2F00DCBF5E /* NewLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD829439B2F00DCBF5E /* NewLinkView.swift */; };
+		FC768BDB2943A6C400DCBF5E /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BDA2943A6C400DCBF5E /* CategorySelectionView.swift */; };
 		FC833DB5293E4CD000E2AAE7 /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB4293E4CD000E2AAE7 /* AddCategoryViewModel.swift */; };
 		FC833DB7293E4E3800E2AAE7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB6293E4E3800E2AAE7 /* UIColor+Extension.swift */; };
 		FC833DB9293E552300E2AAE7 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB8293E552300E2AAE7 /* Color+Extension.swift */; };
@@ -58,6 +60,8 @@
 		FC30FA1729366F6C0017FE1C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FC30FA19293678970017FE1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC30FA1C2936790A0017FE1C /* LinksImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksImage.swift; sourceTree = "<group>"; };
+		FC768BD829439B2F00DCBF5E /* NewLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLinkView.swift; sourceTree = "<group>"; };
+		FC768BDA2943A6C400DCBF5E /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 		FC833DB4293E4CD000E2AAE7 /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
 		FC833DB6293E4E3800E2AAE7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FC833DB8293E552300E2AAE7 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		FC768BD729439B0F00DCBF5E /* New Link */ = {
+			isa = PBXGroup;
+			children = (
+				FC768BD829439B2F00DCBF5E /* NewLinkView.swift */,
+				FC768BDA2943A6C400DCBF5E /* CategorySelectionView.swift */,
+			);
+			path = "New Link";
+			sourceTree = "<group>";
+		};
 		FCA7CAB4293284A200DD549C = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +161,7 @@
 		FCA7CAC1293284CF00DD549C /* links-ios */ = {
 			isa = PBXGroup;
 			children = (
+				FC768BD729439B0F00DCBF5E /* New Link */,
 				FCE663942939000C0003B0E7 /* Category */,
 				FC30FA0F29365A380017FE1C /* Home */,
 				FCFDB8252934E15500A3942A /* Detail */,
@@ -424,6 +438,7 @@
 				FC30FA1D2936790A0017FE1C /* LinksImage.swift in Sources */,
 				FCDCE83529328C9E002B3088 /* Link.swift in Sources */,
 				FCA7CAC3293284CF00DD549C /* links_iosApp.swift in Sources */,
+				FC768BDB2943A6C400DCBF5E /* CategorySelectionView.swift in Sources */,
 				FCDCE85B2932A83D002B3088 /* WebView.swift in Sources */,
 				FCE66396293900240003B0E7 /* AddCategoryView.swift in Sources */,
 				FC30FA1129365A430017FE1C /* HomeView.swift in Sources */,
@@ -435,6 +450,7 @@
 				FCDCE8432932910C002B3088 /* LinkCoreData+Storable.swift in Sources */,
 				FCDCE84929329CD7002B3088 /* LinkProvider.swift in Sources */,
 				FCDCE83D29328E45002B3088 /* CoreDataController.swift in Sources */,
+				FC768BD929439B2F00DCBF5E /* NewLinkView.swift in Sources */,
 				FCDCE83A29328CF9002B3088 /* Links.xcdatamodeld in Sources */,
 				FCDCE84629329C6E002B3088 /* SaveLinkLocal.swift in Sources */,
 				FCDCE84029328E73002B3088 /* Storable.swift in Sources */,
@@ -472,7 +488,7 @@
 		FCA7CAB9293284A200DD549C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
@@ -480,7 +496,7 @@
 		FCA7CABA293284A200DD549C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
@@ -549,7 +565,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,7 +643,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
