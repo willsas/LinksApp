@@ -30,9 +30,7 @@ final class AddCategoryViewModel: ObservableObject {
             id: UUID(),
             url: URL(string: "https://")!,
             title: "",
-            desc: "",
-            type: name,
-            hexColor: color.asHex()
+            desc: ""
         )
         saveLink(link)
             .receive(on: DispatchQueue.main)

@@ -20,9 +20,7 @@ final class HomeViewModel: ObservableObject {
     private let getLinks: () -> AnyPublisher<[Link], Error>
     private var cancellables = Set<AnyCancellable>()
 
-    init(
-        getLinks: @escaping () -> AnyPublisher<[Link], Error>
-    ) {
+    init(getLinks: @escaping () -> AnyPublisher<[Link], Error>) {
         self.getLinks = getLinks
     }
 
@@ -58,35 +56,38 @@ final class HomeViewModel: ObservableObject {
     }
 
     private func appendAllLinksCategoriesTo(links: [Link]) -> [LinkCategory] {
-        let allLinks = Dictionary(grouping: links, by: { $0.type })
-            .flatMap { $0.value }
-
-        var categories = [LinkCategory]()
-        categories.append(.init(title: "All Links", links: allLinks, color: LinksColor.black))
-
-        return categories
+        []
+//        let allLinks = Dictionary(grouping: links, by: { $0.type })
+//            .flatMap { $0.value }
+//
+//        var categories = [LinkCategory]()
+//        categories.append(.init(title: "All Links", links: allLinks, color: LinksColor.black))
+//
+//        return categories
     }
 
     private func groupedCategories(links: [Link]) -> [LinkCategory] {
-        Dictionary(grouping: links, by: { $0.type }).map { key, value in
-            var color = LinksColor.black
-            if let firstColor = getFirstHexInColor(links: value) {
-                color = firstColor
-            }
-            return LinkCategory(
-                title: key,
-                links: value,
-                color: color
-            )
-        }
+        []
+//        Dictionary(grouping: links, by: { $0.type }).map { key, value in
+//            var color = LinksColor.black
+//            if let firstColor = getFirstHexInColor(links: value) {
+//                color = firstColor
+//            }
+//            return LinkCategory(
+//                title: key,
+//                links: value,
+//                color: color
+//            )
+//        }
     }
 
     private func getFirstHexInColor(links: [Link]) -> Color? {
-        guard let firstHex = links.first?.hexColor,
-              let uiColor = UIColor(hex: firstHex)
-        else { return nil }
-        
-        return Color(uiColor: uiColor)
+        nil
+//        guard let firstHex = links.first?.hexColor,
+//              let uiColor = UIColor(hex: firstHex)
+//        else { return nil }
+//
+//        return Color(uiColor: uiColor)
     }
 }
 

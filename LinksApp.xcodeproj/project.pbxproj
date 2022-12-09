@@ -15,6 +15,24 @@
 		FC30FA1B293678970017FE1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC30FA19293678970017FE1C /* Assets.xcassets */; };
 		FC30FA1D2936790A0017FE1C /* LinksImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1C2936790A0017FE1C /* LinksImage.swift */; };
 		FC30FA1E2936790A0017FE1C /* LinksImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1C2936790A0017FE1C /* LinksImage.swift */; };
+		FC768BC029438B9000DCBF5E /* LinkCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BBC29438B9000DCBF5E /* LinkCoreData+CoreDataClass.swift */; };
+		FC768BC129438B9000DCBF5E /* LinkCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BBC29438B9000DCBF5E /* LinkCoreData+CoreDataClass.swift */; };
+		FC768BC229438B9000DCBF5E /* LinkCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BBD29438B9000DCBF5E /* LinkCoreData+CoreDataProperties.swift */; };
+		FC768BC329438B9000DCBF5E /* LinkCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BBD29438B9000DCBF5E /* LinkCoreData+CoreDataProperties.swift */; };
+		FC768BC429438B9000DCBF5E /* CategoryCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BBE29438B9000DCBF5E /* CategoryCoreData+CoreDataClass.swift */; };
+		FC768BC529438B9000DCBF5E /* CategoryCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BBE29438B9000DCBF5E /* CategoryCoreData+CoreDataClass.swift */; };
+		FC768BC629438B9000DCBF5E /* CategoryCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BBF29438B9000DCBF5E /* CategoryCoreData+CoreDataProperties.swift */; };
+		FC768BC729438B9000DCBF5E /* CategoryCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BBF29438B9000DCBF5E /* CategoryCoreData+CoreDataProperties.swift */; };
+		FC768BC929438CB500DCBF5E /* CategoryCoreData+Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BC829438CB500DCBF5E /* CategoryCoreData+Storable.swift */; };
+		FC768BCA29438CB500DCBF5E /* CategoryCoreData+Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BC829438CB500DCBF5E /* CategoryCoreData+Storable.swift */; };
+		FC768BCC29438FDE00DCBF5E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCB29438FDE00DCBF5E /* Category.swift */; };
+		FC768BCD29438FDE00DCBF5E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCB29438FDE00DCBF5E /* Category.swift */; };
+		FC768BCF294393BA00DCBF5E /* GetCategoriesLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCE294393BA00DCBF5E /* GetCategoriesLocal.swift */; };
+		FC768BD0294393BA00DCBF5E /* GetCategoriesLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BCE294393BA00DCBF5E /* GetCategoriesLocal.swift */; };
+		FC768BD22943940700DCBF5E /* SaveCategoryLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD12943940700DCBF5E /* SaveCategoryLocal.swift */; };
+		FC768BD32943940700DCBF5E /* SaveCategoryLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD12943940700DCBF5E /* SaveCategoryLocal.swift */; };
+		FC768BD52943946F00DCBF5E /* CategoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD42943946F00DCBF5E /* CategoryProvider.swift */; };
+		FC768BD62943946F00DCBF5E /* CategoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD42943946F00DCBF5E /* CategoryProvider.swift */; };
 		FC833DB5293E4CD000E2AAE7 /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB4293E4CD000E2AAE7 /* AddCategoryViewModel.swift */; };
 		FC833DB7293E4E3800E2AAE7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB6293E4E3800E2AAE7 /* UIColor+Extension.swift */; };
 		FC833DB9293E552300E2AAE7 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB8293E552300E2AAE7 /* Color+Extension.swift */; };
@@ -58,6 +76,15 @@
 		FC30FA1729366F6C0017FE1C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FC30FA19293678970017FE1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC30FA1C2936790A0017FE1C /* LinksImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksImage.swift; sourceTree = "<group>"; };
+		FC768BBC29438B9000DCBF5E /* LinkCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FC768BBD29438B9000DCBF5E /* LinkCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FC768BBE29438B9000DCBF5E /* CategoryCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FC768BBF29438B9000DCBF5E /* CategoryCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FC768BC829438CB500DCBF5E /* CategoryCoreData+Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryCoreData+Storable.swift"; sourceTree = "<group>"; };
+		FC768BCB29438FDE00DCBF5E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FC768BCE294393BA00DCBF5E /* GetCategoriesLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCategoriesLocal.swift; sourceTree = "<group>"; };
+		FC768BD12943940700DCBF5E /* SaveCategoryLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveCategoryLocal.swift; sourceTree = "<group>"; };
+		FC768BD42943946F00DCBF5E /* CategoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProvider.swift; sourceTree = "<group>"; };
 		FC833DB4293E4CD000E2AAE7 /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
 		FC833DB6293E4E3800E2AAE7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FC833DB8293E552300E2AAE7 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -224,6 +251,8 @@
 				FCDCE82F29328B89002B3088 /* GetLinksApi.swift */,
 				FCDCE83129328B93002B3088 /* GetLinksLocal.swift */,
 				FCDCE84529329C6E002B3088 /* SaveLinkLocal.swift */,
+				FC768BCE294393BA00DCBF5E /* GetCategoriesLocal.swift */,
+				FC768BD12943940700DCBF5E /* SaveCategoryLocal.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -232,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				FCDCE84829329CD7002B3088 /* LinkProvider.swift */,
+				FC768BD42943946F00DCBF5E /* CategoryProvider.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -259,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				FCDCE83429328C9E002B3088 /* Link.swift */,
+				FC768BCB29438FDE00DCBF5E /* Category.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -266,9 +297,14 @@
 		FCDCE83729328CEA002B3088 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				FC768BBC29438B9000DCBF5E /* LinkCoreData+CoreDataClass.swift */,
+				FC768BBD29438B9000DCBF5E /* LinkCoreData+CoreDataProperties.swift */,
+				FC768BBE29438B9000DCBF5E /* CategoryCoreData+CoreDataClass.swift */,
+				FC768BBF29438B9000DCBF5E /* CategoryCoreData+CoreDataProperties.swift */,
 				FCDCE83829328CF9002B3088 /* Links.xcdatamodeld */,
 				FCDCE83C29328E45002B3088 /* CoreDataController.swift */,
 				FCDCE8422932910C002B3088 /* LinkCoreData+Storable.swift */,
+				FC768BC829438CB500DCBF5E /* CategoryCoreData+Storable.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -419,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC768BC429438B9000DCBF5E /* CategoryCoreData+CoreDataClass.swift in Sources */,
 				FC833DB7293E4E3800E2AAE7 /* UIColor+Extension.swift in Sources */,
 				FC30FA1829366F6C0017FE1C /* HomeViewModel.swift in Sources */,
 				FC30FA1D2936790A0017FE1C /* LinksImage.swift in Sources */,
@@ -429,6 +466,7 @@
 				FC30FA1129365A430017FE1C /* HomeView.swift in Sources */,
 				FCFDB8272934E16400A3942A /* DetailView.swift in Sources */,
 				FC833DB9293E552300E2AAE7 /* Color+Extension.swift in Sources */,
+				FC768BC929438CB500DCBF5E /* CategoryCoreData+Storable.swift in Sources */,
 				FC833DB5293E4CD000E2AAE7 /* AddCategoryViewModel.swift in Sources */,
 				FC30FA1429365F210017FE1C /* LinksColor.swift in Sources */,
 				FCA7CAF529328A5E00DD549C /* MainView.swift in Sources */,
@@ -436,11 +474,18 @@
 				FCDCE84929329CD7002B3088 /* LinkProvider.swift in Sources */,
 				FCDCE83D29328E45002B3088 /* CoreDataController.swift in Sources */,
 				FCDCE83A29328CF9002B3088 /* Links.xcdatamodeld in Sources */,
+				FC768BC629438B9000DCBF5E /* CategoryCoreData+CoreDataProperties.swift in Sources */,
+				FC768BD52943946F00DCBF5E /* CategoryProvider.swift in Sources */,
+				FC768BCF294393BA00DCBF5E /* GetCategoriesLocal.swift in Sources */,
 				FCDCE84629329C6E002B3088 /* SaveLinkLocal.swift in Sources */,
+				FC768BD22943940700DCBF5E /* SaveCategoryLocal.swift in Sources */,
 				FCDCE84029328E73002B3088 /* Storable.swift in Sources */,
 				FCDCE83229328B93002B3088 /* GetLinksLocal.swift in Sources */,
+				FC768BC229438B9000DCBF5E /* LinkCoreData+CoreDataProperties.swift in Sources */,
 				FCDCE83029328B89002B3088 /* GetLinksApi.swift in Sources */,
 				FCDCE84D29329E35002B3088 /* MainViewModel.swift in Sources */,
+				FC768BC029438B9000DCBF5E /* LinkCoreData+CoreDataClass.swift in Sources */,
+				FC768BCC29438FDE00DCBF5E /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,21 +493,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC768BC129438B9000DCBF5E /* LinkCoreData+CoreDataClass.swift in Sources */,
 				FCDCE83629328CC3002B3088 /* Link.swift in Sources */,
 				FCDCE8502932A5D8002B3088 /* MainView.swift in Sources */,
 				FCDCE83E29328E45002B3088 /* CoreDataController.swift in Sources */,
 				FCDCE8442932910C002B3088 /* LinkCoreData+Storable.swift in Sources */,
 				FC30FA1E2936790A0017FE1C /* LinksImage.swift in Sources */,
+				FC768BCA29438CB500DCBF5E /* CategoryCoreData+Storable.swift in Sources */,
 				FCDCE84129328E73002B3088 /* Storable.swift in Sources */,
 				FCDCE8522932A5F4002B3088 /* MainViewModel.swift in Sources */,
+				FC768BC329438B9000DCBF5E /* LinkCoreData+CoreDataProperties.swift in Sources */,
 				FCA7CAD5293284ED00DD549C /* links_macosApp.swift in Sources */,
+				FC768BC529438B9000DCBF5E /* CategoryCoreData+CoreDataClass.swift in Sources */,
+				FC768BC729438B9000DCBF5E /* CategoryCoreData+CoreDataProperties.swift in Sources */,
 				FCFDB82A293514D800A3942A /* DetailView.swift in Sources */,
+				FC768BD0294393BA00DCBF5E /* GetCategoriesLocal.swift in Sources */,
 				FCDCE84A29329CD7002B3088 /* LinkProvider.swift in Sources */,
+				FC768BD32943940700DCBF5E /* SaveCategoryLocal.swift in Sources */,
 				FC30FA16293661DB0017FE1C /* LinksColor.swift in Sources */,
+				FC768BD62943946F00DCBF5E /* CategoryProvider.swift in Sources */,
 				FCDCE84729329C6E002B3088 /* SaveLinkLocal.swift in Sources */,
 				FCDCE8592932A829002B3088 /* WebView.swift in Sources */,
 				FCDCE8532932A62C002B3088 /* GetLinksLocal.swift in Sources */,
 				FCDCE83B29328CF9002B3088 /* Links.xcdatamodeld in Sources */,
+				FC768BCD29438FDE00DCBF5E /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

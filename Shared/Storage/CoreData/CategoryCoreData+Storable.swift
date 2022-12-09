@@ -5,27 +5,33 @@ import Combine
 import CoreData
 import Foundation
 
-struct LinkCoreDataStorable: Storable {
+struct CategoryCoreDataStorable: Storable {
 
     private let coreData = CoreDataController.shared
 
     private init() {}
 
     func save<T>(_ data: T) -> AnyPublisher<Bool, Error> {
-        guard let data = data as? Link else {
-            return Fail(error: LinkCoreDataStorableError.invalidDataType).eraseToAnyPublisher()
+        guard let data = data as? Category else {
+            return Fail(error: CategoryCoreDataStorableError.invalidDataType).eraseToAnyPublisher()
         }
 
         let backgroundContext = coreData.persistentContainer.newBackgroundContext()
         return Future<Bool, Error> { promise in
             backgroundContext.performAndWait {
-                let linkCoreData = LinkCoreData(context: backgroundContext)
-                linkCoreData.id = data.id
-                linkCoreData.title = data.title
-                linkCoreData.url = data.url
-                linkCoreData.desc = data.desc
-//                linkCoreData.type = data.type
-//                linkCoreData.hexColor = data.hexColor
+                let categoryCoreData = CategoryCoreData(context: backgroundContext)
+                categoryCoreData.id = data.id
+                categoryCoreData.title = data.title
+                categoryCoreData.hexColor = data.hexColor
+                
+                data.links.forEach { link in
+                    let linkCoreData = LinkCoreData(context: backgroundContext)
+                    linkCoreData.id = link.id
+                    linkCoreData.title = link.title
+                    linkCoreData.url = link.url
+                    linkCoreData.desc = link.desc
+                    categoryCoreData.addToLinks(linkCoreData)
+                }
 
                 if backgroundContext.hasChanges {
                     do {
@@ -44,8 +50,8 @@ struct LinkCoreDataStorable: Storable {
     }
 
     func retrive<T>() -> AnyPublisher<T, Error> {
-        let fetchRequest = NSFetchRequest<LinkCoreData>(
-            entityName: String(describing: LinkCoreData.self)
+        let fetchRequest = NSFetchRequest<CategoryCoreData>(
+            entityName: String(describing: CategoryCoreData.self)
         )
         fetchRequest.sortDescriptors = []
 
@@ -60,10 +66,10 @@ struct LinkCoreDataStorable: Storable {
             do {
                 try fetchedResultController.performFetch()
                 let value = fetchedResultController.fetchedObjects ?? []
-                let mappedValue = value.compactMap(Link.convertFrom(linkCoreData:))
+                let mappedValue = value.compactMap(Category.convertFrom(categoryCoreData:))
 
                 guard mappedValue is T else {
-                    promise(.failure(LinkCoreDataStorableError.invalidDataType))
+                    promise(.failure(CategoryCoreDataStorableError.invalidDataType))
                     return
                 }
 
@@ -76,22 +82,26 @@ struct LinkCoreDataStorable: Storable {
     }
 }
 
-public extension Link {
-    static func convertFrom(linkCoreData link: LinkCoreData) -> Self? {
-        guard let id = link.id, let title = link.title,
-              let url = link.url, let desc = link.desc
+private extension Category {
+    static func convertFrom(categoryCoreData category: CategoryCoreData) -> Self? {
+        guard let id = category.id,
+              let title = category.title,
+              let hexColor = category.hexColor
         else { return nil }
         
-        return .init(id: id, url: url, title: title, desc: desc)
+        let links = category.linksArray.compactMap { Link.convertFrom(linkCoreData:$0) }
+        
+        return .init(id: id, title: title, hexColor: hexColor, links: links)
     }
 }
 
-public enum LinkCoreDataStorableError: Error {
+public enum CategoryCoreDataStorableError: Error {
     case invalidDataType
 }
 
-extension LinkCoreDataStorable {
+extension CategoryCoreDataStorable {
     static func make() -> Self {
         .init()
     }
 }
+
