@@ -17,6 +17,7 @@
 		FC30FA1E2936790A0017FE1C /* LinksImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC30FA1C2936790A0017FE1C /* LinksImage.swift */; };
 		FC768BD929439B2F00DCBF5E /* NewLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BD829439B2F00DCBF5E /* NewLinkView.swift */; };
 		FC768BDB2943A6C400DCBF5E /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BDA2943A6C400DCBF5E /* CategorySelectionView.swift */; };
+		FC768BDD2944A31100DCBF5E /* NewLinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC768BDC2944A31100DCBF5E /* NewLinkViewModel.swift */; };
 		FC833DB5293E4CD000E2AAE7 /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB4293E4CD000E2AAE7 /* AddCategoryViewModel.swift */; };
 		FC833DB7293E4E3800E2AAE7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB6293E4E3800E2AAE7 /* UIColor+Extension.swift */; };
 		FC833DB9293E552300E2AAE7 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB8293E552300E2AAE7 /* Color+Extension.swift */; };
@@ -50,6 +51,8 @@
 		FCDCE8592932A829002B3088 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE8582932A829002B3088 /* WebView.swift */; };
 		FCDCE85B2932A83D002B3088 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDCE85A2932A83D002B3088 /* WebView.swift */; };
 		FCE66396293900240003B0E7 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE66395293900240003B0E7 /* AddCategoryView.swift */; };
+		FCEE2ABC29521D3500FEDC7A /* ListLinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEE2ABB29521D3500FEDC7A /* ListLinkViewModel.swift */; };
+		FCEE2AC029521D5900FEDC7A /* ListLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEE2ABF29521D5900FEDC7A /* ListLinkView.swift */; };
 		FCFDB8272934E16400A3942A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDB8262934E16400A3942A /* DetailView.swift */; };
 		FCFDB82A293514D800A3942A /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFDB829293514D800A3942A /* DetailView.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +65,7 @@
 		FC30FA1C2936790A0017FE1C /* LinksImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksImage.swift; sourceTree = "<group>"; };
 		FC768BD829439B2F00DCBF5E /* NewLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLinkView.swift; sourceTree = "<group>"; };
 		FC768BDA2943A6C400DCBF5E /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
+		FC768BDC2944A31100DCBF5E /* NewLinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLinkViewModel.swift; sourceTree = "<group>"; };
 		FC833DB4293E4CD000E2AAE7 /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
 		FC833DB6293E4E3800E2AAE7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FC833DB8293E552300E2AAE7 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		FCDCE8582932A829002B3088 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		FCDCE85A2932A83D002B3088 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		FCE66395293900240003B0E7 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
+		FCEE2ABB29521D3500FEDC7A /* ListLinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLinkViewModel.swift; sourceTree = "<group>"; };
+		FCEE2ABF29521D5900FEDC7A /* ListLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLinkView.swift; sourceTree = "<group>"; };
 		FCFDB8262934E16400A3942A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FCFDB829293514D800A3942A /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +141,7 @@
 			children = (
 				FC768BD829439B2F00DCBF5E /* NewLinkView.swift */,
 				FC768BDA2943A6C400DCBF5E /* CategorySelectionView.swift */,
+				FC768BDC2944A31100DCBF5E /* NewLinkViewModel.swift */,
 			);
 			path = "New Link";
 			sourceTree = "<group>";
@@ -161,6 +168,7 @@
 		FCA7CAC1293284CF00DD549C /* links-ios */ = {
 			isa = PBXGroup;
 			children = (
+				FCEE2ABA29521D0F00FEDC7A /* List Link */,
 				FC768BD729439B0F00DCBF5E /* New Link */,
 				FCE663942939000C0003B0E7 /* Category */,
 				FC30FA0F29365A380017FE1C /* Home */,
@@ -315,6 +323,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		FCEE2ABA29521D0F00FEDC7A /* List Link */ = {
+			isa = PBXGroup;
+			children = (
+				FCEE2ABB29521D3500FEDC7A /* ListLinkViewModel.swift */,
+				FCEE2ABF29521D5900FEDC7A /* ListLinkView.swift */,
+			);
+			path = "List Link";
+			sourceTree = "<group>";
+		};
 		FCFDB8252934E15500A3942A /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,8 +450,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCEE2ABC29521D3500FEDC7A /* ListLinkViewModel.swift in Sources */,
 				FC833DB7293E4E3800E2AAE7 /* UIColor+Extension.swift in Sources */,
 				FC30FA1829366F6C0017FE1C /* HomeViewModel.swift in Sources */,
+				FC768BDD2944A31100DCBF5E /* NewLinkViewModel.swift in Sources */,
 				FC30FA1D2936790A0017FE1C /* LinksImage.swift in Sources */,
 				FCDCE83529328C9E002B3088 /* Link.swift in Sources */,
 				FCA7CAC3293284CF00DD549C /* links_iosApp.swift in Sources */,
@@ -455,6 +474,7 @@
 				FCDCE84629329C6E002B3088 /* SaveLinkLocal.swift in Sources */,
 				FCDCE84029328E73002B3088 /* Storable.swift in Sources */,
 				FCDCE83229328B93002B3088 /* GetLinksLocal.swift in Sources */,
+				FCEE2AC029521D5900FEDC7A /* ListLinkView.swift in Sources */,
 				FCDCE83029328B89002B3088 /* GetLinksApi.swift in Sources */,
 				FCDCE84D29329E35002B3088 /* MainViewModel.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ struct HomeView: View {
     let height: CGFloat = 120
 
     @ObservedObject var viewModel: HomeViewModel
-    
+
     @State var presentAddCategory: Bool = false
     @State var presentNewLink: Bool = false
 
@@ -21,17 +21,21 @@ struct HomeView: View {
             ZStack {
                 LinksColor.background
                     .ignoresSafeArea(edges: .bottom)
-                
+
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(viewModel.categoriesLinks) { category in
-                            CardView(
-                                title: category.title ,
-                                totalLink: "\(category.links.count) links",
-                                color: category.color
-                            )
+                            NavigationLink {
+                                ListLinkView(links: category.links)
+                            } label: {
+                                CardView(
+                                    title: category.title,
+                                    totalLink: "\(category.links.count) links",
+                                    color: category.color
+                                )
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
                                 .frame(height: height)
+                            }
                         }
                     }
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
@@ -75,7 +79,7 @@ private struct CardView: View {
     var title: String
     var totalLink: String
     var color: Color
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
