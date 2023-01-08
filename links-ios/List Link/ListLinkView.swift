@@ -5,35 +5,41 @@ import SwiftUI
 
 struct ListLinkView: View {
 
-    struct GroupedLink: Identifiable {
-        let id = UUID()
-        let title: String
-        let links: [Link]
-    }
-
-    var links: [Link]
+    @ObservedObject var viewModel: ListLinkViewModel
+    let categoryId: String
 
     var body: some View {
-        List(getGroupedLinks()) { groupedLink in
-            Section {
-                ForEach(groupedLink.links) { link in
-                    LinkCell(link: link)
+        ZStack {
+            switch viewModel.listType {
+            case .link(let links):
+                List {
+                    ForEach(links) {
+                        LinkCell(link: $0)
+                    }
+                    .onDelete {
+                        $0.forEach(viewModel.deleteLink)
+                    }
                 }
-            } header: {
-                Text(groupedLink.title)
-                    .font(.system(size: 22, weight: .bold, design: .rounded))
-                    .padding(.bottom, 16)
+            case .grouped(let grouped):
+                List(grouped) { groupedLink in
+                    Section {
+                        ForEach(groupedLink.links) { link in
+                            LinkCell(link: link)
+                        }
+                    } header: {
+                        Text(groupedLink.title)
+                            .font(.system(size: 22, weight: .bold, design: .rounded))
+                            .padding(.bottom, 16)
+                    }
+                }
+               
             }
         }
-    }
-
-    private func getGroupedLinks() -> [GroupedLink] {
-        Dictionary(grouping: links, by: { $0.type }).map { key, value in
-            GroupedLink(
-                title: key,
-                links: value
-            )
+        .navigationTitle(viewModel.navigationTitle)
+        .onAppear {
+            viewModel.getLinks(categoryId: categoryId)
         }
+        
     }
 }
 
@@ -72,3 +78,9 @@ private struct LinkCell: View {
 //        ListLinkView()
 //    }
 // }
+
+extension ListLinkView {
+    static func make(categoryId: String) -> Self {
+        .init(viewModel: .make(), categoryId: categoryId)
+    }
+}

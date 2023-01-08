@@ -5,6 +5,9 @@ import Combine
 import Foundation
 
 protocol Storable {
-    func save<T>(_ data: T) -> AnyPublisher<Bool, Error>
-    func retrive<T>() -> AnyPublisher<T, Error>
+    associatedtype T
+    associatedtype Array
+    func save(_ data: T) -> AnyPublisher<Bool, Error>
+    func retrive() -> AnyPublisher<Array, Error>
+    func delete(_ data: T) -> AnyPublisher<Bool, Error>
 }

@@ -31,7 +31,8 @@ final class AddCategoryViewModel: ObservableObject {
             url: URL(string: "https://")!,
             title: "",
             desc: "",
-            type: name,
+            categoryName: name,
+            categoryId: UUID(),
             hexColor: color.asHex()
         )
         saveLink(link)

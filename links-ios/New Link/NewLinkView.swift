@@ -113,15 +113,8 @@ struct NewLinkView: View {
             }
             .sheet(isPresented: $presentSelectCategory) {
                 CategorySelectionView.make(
-                    selectedID: $viewModel.categoryId,
-                    categories: viewModel.categoriesLinks
-                        .map {
-                            CategorySelectionParam(
-                                id: $0.id,
-                                name: $0.title,
-                                hexString: $0.color.asHex()
-                            )
-                        }
+                    selectedID: $viewModel.selectedCategoryId,
+                    categories: viewModel.categories
                 )
             }
         }

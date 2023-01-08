@@ -5,38 +5,31 @@ import Combine
 import Foundation
 import SwiftUI
 
-struct LinkCategory: Identifiable {
-    var id = UUID()
-    var title: String
-    var links: [Link]
-    var color: Color
-}
-
 final class HomeViewModel: ObservableObject {
 
-    @MainActor @Published var categoriesLinks = [LinkCategory]()
+    @MainActor @Published var categories = [Category]()
     @MainActor @Published var error = ""
 
-    private let getLinks: () -> AnyPublisher<[Link], Error>
+    private let getCategory: () -> AnyPublisher<[Category], Error>
     private var cancellables = Set<AnyCancellable>()
 
     init(
-        getLinks: @escaping () -> AnyPublisher<[Link], Error>
+        getCategory: @escaping () -> AnyPublisher<[Category], Error>
     ) {
-        self.getLinks = getLinks
+        self.getCategory = getCategory
     }
 
     @MainActor
     func onAppear() {
-        getLinks()
+        getCategory()
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] completion in
                     if case let .failure(err) = completion {
                         self?.error = err.localizedDescription
                     }
-                }, receiveValue: { [weak self] links in
-                    self?.processLinks(links)
+                }, receiveValue: { [weak self] in
+                    self?.categories = $0
                 }
             )
             .store(in: &cancellables)
@@ -46,53 +39,10 @@ final class HomeViewModel: ObservableObject {
     func refresh() {
         onAppear()
     }
-
-    @MainActor
-    private func processLinks(_ links: [Link]) {
-        let allCategories = appendAllLinksCategoriesTo(links: links)
-        let groupedCategories = groupedCategories(links: links)
-
-        categoriesLinks = [allCategories, groupedCategories]
-            .flatMap { $0 }
-            .sorted(by: { $0.title < $1.title })
-    }
-
-    private func appendAllLinksCategoriesTo(links: [Link]) -> [LinkCategory] {
-        let allLinks = Dictionary(grouping: links, by: { $0.type })
-            .flatMap { $0.value }
-
-        var categories = [LinkCategory]()
-        categories.append(.init(title: "All Links", links: allLinks, color: LinksColor.black))
-
-        return categories
-    }
-
-    private func groupedCategories(links: [Link]) -> [LinkCategory] {
-        Dictionary(grouping: links, by: { $0.type }).map { key, value in
-            var color = LinksColor.black
-            if let firstColor = getFirstHexInColor(links: value) {
-                color = firstColor
-            }
-            return LinkCategory(
-                title: key,
-                links: value,
-                color: color
-            )
-        }
-    }
-
-    private func getFirstHexInColor(links: [Link]) -> Color? {
-        guard let firstHex = links.first?.hexColor,
-              let uiColor = UIColor(hex: firstHex)
-        else { return nil }
-        
-        return Color(uiColor: uiColor)
-    }
 }
 
 extension HomeViewModel {
     static func make() -> Self {
-        let linkProvider = LinkProvider.make()
-        return .init(getLinks: linkProvider.getLink)
+        return .init(getCategory: CategoryProvider.make().getCategories)
     }
 }

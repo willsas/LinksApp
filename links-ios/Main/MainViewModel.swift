@@ -41,6 +41,6 @@ final class MainViewModel: ObservableObject {
 extension MainViewModel {
     static func make() -> Self {
         let linkProvider = LinkProvider.make()
-        return .init(getLinks: linkProvider.getLink, saveLink: linkProvider.saveLink)
+        return .init(getLinks: linkProvider.getLinks, saveLink: linkProvider.saveLink)
     }
 }

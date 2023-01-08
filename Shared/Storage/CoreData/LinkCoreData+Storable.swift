@@ -6,16 +6,14 @@ import CoreData
 import Foundation
 
 struct LinkCoreDataStorable: Storable {
-
+    typealias T = Link
+    typealias Array = [Link]
+    
     private let coreData = CoreDataController.shared
 
     private init() {}
 
-    func save<T>(_ data: T) -> AnyPublisher<Bool, Error> {
-        guard let data = data as? Link else {
-            return Fail(error: LinkCoreDataStorableError.invalidDataType).eraseToAnyPublisher()
-        }
-
+    func save(_ data: Link) -> AnyPublisher<Bool, Error> {
         let backgroundContext = coreData.persistentContainer.newBackgroundContext()
         return Future<Bool, Error> { promise in
             backgroundContext.performAndWait {
@@ -24,7 +22,8 @@ struct LinkCoreDataStorable: Storable {
                 linkCoreData.title = data.title
                 linkCoreData.url = data.url
                 linkCoreData.desc = data.desc
-                linkCoreData.type = data.type
+                linkCoreData.categoryName = data.categoryName
+                linkCoreData.categoryId = data.categoryId
                 linkCoreData.hexColor = data.hexColor
 
                 if backgroundContext.hasChanges {
@@ -43,7 +42,7 @@ struct LinkCoreDataStorable: Storable {
         }.eraseToAnyPublisher()
     }
 
-    func retrive<T>() -> AnyPublisher<T, Error> {
+    func retrive() -> AnyPublisher<[Link], Error> {
         let fetchRequest = NSFetchRequest<LinkCoreData>(
             entityName: String(describing: LinkCoreData.self)
         )
@@ -56,23 +55,35 @@ struct LinkCoreDataStorable: Storable {
             cacheName: nil
         )
 
-        return Future<T, Error> { promise in
+        return Future<[Link], Error> { promise in
             do {
                 try fetchedResultController.performFetch()
                 let value = fetchedResultController.fetchedObjects ?? []
                 let mappedValue = value.compactMap(Link.convertFrom(linkCoreData:))
-
-                guard mappedValue is T else {
-                    promise(.failure(LinkCoreDataStorableError.invalidDataType))
-                    return
-                }
-
-                promise(.success(mappedValue as! T))
+                
+                promise(.success(mappedValue))
             } catch {
                 promise(.failure(error))
             }
         }.eraseToAnyPublisher()
-
+    }
+    
+    func delete(_ data: Link) -> AnyPublisher<Bool, Error> {
+        let backgroundContext = coreData.persistentContainer.newBackgroundContext()
+        return Future<Bool, Error> { promise in
+            backgroundContext.performAndWait {
+                let linkCoreData = LinkCoreData(context: backgroundContext)
+                linkCoreData.id = data.id
+                linkCoreData.title = data.title
+                linkCoreData.url = data.url
+                linkCoreData.desc = data.desc
+                linkCoreData.categoryName = data.categoryName
+                linkCoreData.categoryId = data.categoryId
+                linkCoreData.hexColor = data.hexColor
+                
+                coreData.persistentContainer.viewContext.delete(linkCoreData)
+            }
+        }.eraseToAnyPublisher()
     }
 }
 
@@ -80,10 +91,19 @@ private extension Link {
     static func convertFrom(linkCoreData link: LinkCoreData) -> Self? {
         guard let id = link.id, let title = link.title,
               let url = link.url, let desc = link.desc,
-              let type = link.type,
+              let categoryName = link.categoryName,
+              let cateogryId = link.categoryId,
               let hexColor = link.hexColor
         else { return nil }
-        return .init(id: id, url: url, title: title, desc: desc, type: type, hexColor: hexColor)
+        return .init(
+            id: id,
+            url: url,
+            title: title,
+            desc: desc,
+            categoryName: categoryName,
+            categoryId: cateogryId,
+            hexColor: hexColor
+        )
     }
 }
 

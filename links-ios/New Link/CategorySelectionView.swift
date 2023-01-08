@@ -3,18 +3,12 @@
 
 import SwiftUI
 
-struct CategorySelectionParam: Identifiable {
-    let id: UUID
-    let name: String
-    let hexString: String
-}
-
 struct CategorySelectionView: View {
 
     @Environment(\.presentationMode) var presentationMode
 
     @Binding var selectedId: UUID
-    var categories: [CategorySelectionParam]
+    var categories: [Category]
 
     var body: some View {
         NavigationView {
@@ -24,8 +18,8 @@ struct CategorySelectionView: View {
                         LinksImage.folderOpen
                             .resizable()
                             .frame(width: 32, height: 32)
-                            .foregroundColor(.init(uiColor: .init(hex: category.hexString)!))
-                        /*@START_MENU_TOKEN@*/Text(category.name)/*@END_MENU_TOKEN@*/
+                            .foregroundColor(.init(uiColor: .init(hex: category.hexColor)!))
+                        Text(category.title)
                         Spacer()
                         if selectedId == category.id {
                             Image(systemName: "checkmark")
@@ -42,18 +36,7 @@ struct CategorySelectionView: View {
 }
 
 extension CategorySelectionView {
-    static func make(selectedID: Binding<UUID>, categories: [CategorySelectionParam]) -> Self {
+    static func make(selectedID: Binding<UUID>, categories: [Category]) -> Self {
         .init(selectedId: selectedID, categories: categories)
     }
 }
-
-//struct CategorySelectionView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CategorySelectionView(selectedId: UUID(), categories: [
-//            .init(id: UUID(), name: "name 1", hexString: "#f49325"),
-//            .init(id: UUID(), name: "name 2", hexString: "#f49325"),
-//            .init(id: UUID(), name: "name 3", hexString: "#f49325"),
-//            .init(id: UUID(), name: "name 4", hexString: "#f49325")
-//        ])
-//    }
-//}

@@ -24,14 +24,14 @@ struct HomeView: View {
 
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(viewModel.categoriesLinks) { category in
+                        ForEach(viewModel.categories) { category in
                             NavigationLink {
-                                ListLinkView(links: category.links)
+                                ListLinkView.make(categoryId: category.id.uuidString)
                             } label: {
                                 CardView(
                                     title: category.title,
-                                    totalLink: "\(category.links.count) links",
-                                    color: category.color
+                                    totalLink: "\(category.linkCount) links",
+                                    color: Color(uiColor: .init(hex: category.hexColor)!)
                                 )
                                 .clipShape(RoundedRectangle(cornerRadius: 12))
                                 .frame(height: height)
@@ -66,12 +66,16 @@ struct HomeView: View {
         .onAppear {
             viewModel.onAppear()
         }
+
         .sheet(isPresented: $presentAddCategory) {
             AddCategoryView.make()
         }
-        .sheet(isPresented: $presentNewLink) {
-            NewLinkView.make()
-        }
+        
+        .sheet(
+            isPresented: $presentNewLink,
+            onDismiss: { viewModel.refresh() },
+            content: { NewLinkView.make() }
+        )
     }
 }
 

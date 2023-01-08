@@ -8,21 +8,7 @@ public struct Link: Identifiable {
     public let url: URL
     public let title: String
     public let desc: String
-    public let type: String
+    public let categoryName: String
+    public let categoryId: UUID
     public let hexColor: String
-}
-
-public extension Link {
-    static func dummy(count: Int) -> [Self] {
-        (1...count).map { count in
-            .init(
-                id: UUID(),
-                url: URL(string: "https://www.google/\(count)")!,
-                title: "title \(count)",
-                desc: "lorem ipsum dor sit amet blablablaa asnuan able",
-                type: "type \(Int.random(in: 0...10))",
-                hexColor: "#fffff"
-            )
-        }
-    }
 }

@@ -8,32 +8,61 @@ struct LinkProvider {
 
     private let getLinksLocal: () -> AnyPublisher<[Link], Error>
     private let saveLinkLocal: (Link) -> AnyPublisher<Bool, Error>
+    private let deleteLinkLocal: (Link) -> AnyPublisher<Bool, Error>
 
     init(
         getLinksLocal: @escaping () -> AnyPublisher<[Link], Error>,
-        saveLinkLocal: @escaping (Link) -> AnyPublisher<Bool, Error>
+        saveLinkLocal: @escaping (Link) -> AnyPublisher<Bool, Error>,
+        deleteLinkLocal: @escaping (Link) -> AnyPublisher<Bool, Error>
     ) {
         self.getLinksLocal = getLinksLocal
         self.saveLinkLocal = saveLinkLocal
+        self.deleteLinkLocal = deleteLinkLocal
     }
 
-    func getLink() -> AnyPublisher<[Link], Error> {
+    func getLinks() -> AnyPublisher<[Link], Error> {
         getLinksLocal()
-//        Just(Link.dummy(count: 50))
-//        .setFailureType(to: Error.self)
-//        .eraseToAnyPublisher()
+            .map {
+                $0.filter { !$0.title.isEmpty && !$0.desc.isEmpty }
+            }
+            .eraseToAnyPublisher()
     }
 
     func saveLink(_ link: Link) -> AnyPublisher<Bool, Error> {
         saveLinkLocal(link)
+    }
+
+    func deleteLink(id: String) -> AnyPublisher<Bool, Error> {
+        getLinksLocal()
+            .compactMap { $0.first { $0.id.uuidString == id } }
+            .map { deleteLinkLocal($0) }
+            .switchToLatest()
+            .eraseToAnyPublisher()
+    }
+
+    func getLinksWith(
+        categoryId: String,
+        returnAllLinkIfEmpty: Bool = true
+    ) -> AnyPublisher<[Link], Error> {
+        getLinks()
+            .map {
+                let links = $0.filter { $0.categoryId.uuidString == categoryId }
+                if links.isEmpty && returnAllLinkIfEmpty {
+                    return $0
+                } else {
+                    return links
+                }
+            }
+            .eraseToAnyPublisher()
     }
 }
 
 extension LinkProvider {
     static func make() -> Self {
         .init(
-            getLinksLocal: GetLinksLocal.make().get,
-            saveLinkLocal: SaveLinkLocal.make().save
+            getLinksLocal: GetLinksLocal<LinkCoreDataStorable>.make().get,
+            saveLinkLocal: SaveLinkLocal<LinkCoreDataStorable>.make().save,
+            deleteLinkLocal: DeleteLinkLocal<LinkCoreDataStorable>.make().delete
         )
     }
 }
