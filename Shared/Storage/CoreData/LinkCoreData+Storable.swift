@@ -69,19 +69,40 @@ struct LinkCoreDataStorable: Storable {
     }
     
     func delete(_ data: Link) -> AnyPublisher<Bool, Error> {
-        let backgroundContext = coreData.persistentContainer.newBackgroundContext()
-        return Future<Bool, Error> { promise in
-            backgroundContext.performAndWait {
-                let linkCoreData = LinkCoreData(context: backgroundContext)
-                linkCoreData.id = data.id
-                linkCoreData.title = data.title
-                linkCoreData.url = data.url
-                linkCoreData.desc = data.desc
-                linkCoreData.categoryName = data.categoryName
-                linkCoreData.categoryId = data.categoryId
-                linkCoreData.hexColor = data.hexColor
-                
+        return retrive(linkId: data.id)
+            .tryMap { linkCoreData in
                 coreData.persistentContainer.viewContext.delete(linkCoreData)
+                try coreData.persistentContainer.viewContext.save()
+                return true
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private func retrive(linkId: UUID) -> AnyPublisher<LinkCoreData, Error> {
+        let fetchRequest = NSFetchRequest<LinkCoreData>(
+            entityName: String(describing: LinkCoreData.self)
+        )
+        fetchRequest.sortDescriptors = []
+        fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = .init(format: "id == %@", linkId as CVarArg)
+
+        let fetchedResultController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: coreData.persistentContainer.viewContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+
+        return Future<LinkCoreData, Error> { promise in
+            do {
+                try fetchedResultController.performFetch()
+                guard let value = fetchedResultController.fetchedObjects?.first else {
+                    promise(.failure(LinkCoreDataStorableError.dataNotFound))
+                    return
+                }
+                promise(.success(value))
+            } catch {
+                promise(.failure(error))
             }
         }.eraseToAnyPublisher()
     }
@@ -109,6 +130,7 @@ private extension Link {
 
 public enum LinkCoreDataStorableError: Error {
     case invalidDataType
+    case dataNotFound
 }
 
 extension LinkCoreDataStorable {

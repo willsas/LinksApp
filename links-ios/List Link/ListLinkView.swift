@@ -4,9 +4,14 @@
 import SwiftUI
 
 struct ListLinkView: View {
+    
+    enum LinkType {
+        case all
+        case category(categoryId: String)
+    }
 
     @ObservedObject var viewModel: ListLinkViewModel
-    let categoryId: String
+    let linkType: LinkType
 
     var body: some View {
         ZStack {
@@ -16,9 +21,7 @@ struct ListLinkView: View {
                     ForEach(links) {
                         LinkCell(link: $0)
                     }
-                    .onDelete {
-                        $0.forEach(viewModel.deleteLink)
-                    }
+                    .onDelete { viewModel.deleteLink($0) }
                 }
             case .grouped(let grouped):
                 List(grouped) { groupedLink in
@@ -26,6 +29,7 @@ struct ListLinkView: View {
                         ForEach(groupedLink.links) { link in
                             LinkCell(link: link)
                         }
+                        .onDelete { viewModel.deleteLink($0) }
                     } header: {
                         Text(groupedLink.title)
                             .font(.system(size: 22, weight: .bold, design: .rounded))
@@ -37,7 +41,7 @@ struct ListLinkView: View {
         }
         .navigationTitle(viewModel.navigationTitle)
         .onAppear {
-            viewModel.getLinks(categoryId: categoryId)
+            viewModel.getLinks(type: linkType)
         }
         
     }
@@ -80,7 +84,7 @@ private struct LinkCell: View {
 // }
 
 extension ListLinkView {
-    static func make(categoryId: String) -> Self {
-        .init(viewModel: .make(), categoryId: categoryId)
+    static func make(linkType type: LinkType) -> Self {
+        .init(viewModel: .make(), linkType: type)
     }
 }

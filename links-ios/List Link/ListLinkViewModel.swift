@@ -23,22 +23,79 @@ final class ListLinkViewModel: ObservableObject {
     @MainActor @Published var error = ""
 
     private let getLinksWithCategory: (String) -> AnyPublisher<[Link], Error>
+    private let getAllLinks: () -> AnyPublisher<[Link], Error>
     private let deleteLink: (String) -> AnyPublisher<Bool, Error>
     private var cancellables = Set<AnyCancellable>()
 
-    private var categoryId: String?
+    private var linkType: ListLinkView.LinkType?
 
     init(
         getLinksWithCategory: @escaping (String) -> AnyPublisher<[Link], Error>,
+        getAllLinks: @escaping () -> AnyPublisher<[Link], Error>,
         deleteLink: @escaping (String) -> AnyPublisher<Bool, Error>
     ) {
         self.getLinksWithCategory = getLinksWithCategory
+        self.getAllLinks = getAllLinks
         self.deleteLink = deleteLink
     }
 
     @MainActor
-    func getLinks(categoryId: String) {
-        self.categoryId = categoryId
+    func getLinks(type: ListLinkView.LinkType) {
+        linkType = type
+        switch type {
+        case .all: getAll()
+        case .category(let categoryId): getWith(categoryId: categoryId)
+        }
+    }
+
+    @MainActor
+    func deleteLink(_ indexSet: IndexSet) {
+        var idsToDelete = [UUID]()
+        switch listType {
+        case let .link(links):
+            idsToDelete = indexSet.map { links[$0].id }
+        case let .grouped(grouped):
+            let links = grouped.flatMap { $0.links}
+            idsToDelete = indexSet.map { links[$0].id }
+        }
+        
+        idsToDelete.forEach { id in
+            deleteLink(id.uuidString)
+                .sink(
+                    receiveCompletion: { [weak self] completion in
+                        if case let .failure(err) = completion {
+                            self?.error = err.localizedDescription
+                        }
+                    }, receiveValue: { [weak self] _ in
+                        guard let linkType = self?.linkType else { return }
+                        self?.getLinks(type: linkType)
+                    }
+                )
+                .store(in: &cancellables)
+        }
+    }
+    
+    @MainActor
+    private func getAll() {
+        getAllLinks()
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [weak self] completion in
+                    if case let .failure(err) = completion {
+                        self?.error = err.localizedDescription
+                    }
+                }, receiveValue: { [weak self] in
+                    guard let self else { return }
+                    let groupedLink = self.getGroupedLink($0)
+                    self.listType = .grouped(groupedLink)
+                    self.navigationTitle = "All links"
+                }
+            )
+            .store(in: &cancellables)
+    }
+    
+    @MainActor
+    private func getWith(categoryId: String) {
         getLinksWithCategory(categoryId)
             .receive(on: DispatchQueue.main)
             .sink(
@@ -47,51 +104,12 @@ final class ListLinkViewModel: ObservableObject {
                         self?.error = err.localizedDescription
                     }
                 }, receiveValue: { [weak self] in
-                    self?.processNewLinks($0)
+                    guard let self else { return }
+                    self.listType = .link($0)
+                    self.navigationTitle = $0.first?.categoryName ?? ""
                 }
             )
             .store(in: &cancellables)
-    }
-
-    @MainActor
-    func deleteLink(_ row: Int) {
-        switch listType {
-        case let .link(links):
-            var unmutableLinks = links
-            unmutableLinks.remove(at: row)
-            listType = .link(unmutableLinks)
-//            deleteLink(link.id.uuidString)
-//                .sink(
-//                    receiveCompletion: { [weak self] completion in
-//                        if case let .failure(err) = completion {
-//                            self?.error = err.localizedDescription
-//                        }
-//                    }, receiveValue: { [weak self] _ in
-//                        guard let categoryId = self?.categoryId else { return }
-//                        self?.getLinks(categoryId: categoryId)
-//                    }
-//                )
-//                .store(in: &cancellables)
-
-        case let .grouped(grouped):
-//            let link = grouped.links[row]
-            print("not handeled yet")
-        }
-    }
-
-    @MainActor
-    private func processNewLinks(_ links: [Link]) {
-        let categoryId = links
-            .map { $0.categoryId }
-            .uniqued()
-        if categoryId.count == 1 {
-            listType = .link(links)
-            navigationTitle = links.first?.categoryName ?? ""
-        } else {
-            let groupedLink = getGroupedLink(links)
-            listType = .grouped(groupedLink)
-            navigationTitle = "All links"
-        }
     }
 
     private func getGroupedLink(_ links: [Link]) -> [GroupedLink] {
@@ -108,11 +126,11 @@ final class ListLinkViewModel: ObservableObject {
 
 extension ListLinkViewModel {
     static func make() -> Self {
+        let linkProvider = LinkProvider.make()
         return .init(
-            getLinksWithCategory: {
-                LinkProvider.make().getLinksWith(categoryId: $0)
-            },
-            deleteLink: LinkProvider.make().deleteLink(id:))
+            getLinksWithCategory: linkProvider.getLinksWith(categoryId:),
+            getAllLinks: linkProvider.getLinks,
+            deleteLink: linkProvider.deleteLink(id:))
     }
 }
 

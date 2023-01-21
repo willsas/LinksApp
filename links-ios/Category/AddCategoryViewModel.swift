@@ -7,6 +7,9 @@ import SwiftUI
 
 final class AddCategoryViewModel: ObservableObject {
     
+    typealias Name = String
+    typealias HexColor = String
+    
     @MainActor @Published var isSuccess = false
     @MainActor @Published var error = ""
 
@@ -15,27 +18,18 @@ final class AddCategoryViewModel: ObservableObject {
 
     let allColors: [Color]
     
-    private let saveLink: (Link) -> AnyPublisher<Bool, Error>
+    private let addCategory: (Name, HexColor) -> AnyPublisher<Bool, Error>
     private var cancellables = Set<AnyCancellable>()
 
-    init(saveLink: @escaping (Link) -> AnyPublisher<Bool, Error>) {
-        self.saveLink = saveLink
+    init(addCategory: @escaping (Name, HexColor) -> AnyPublisher<Bool, Error>) {
+        self.addCategory = addCategory
         self.allColors =  (1...12).map { _ in LinksColor.random }
         self.color = allColors.first!
     }
 
     @MainActor
     func save() {
-        let link = Link(
-            id: UUID(),
-            url: URL(string: "https://")!,
-            title: "",
-            desc: "",
-            categoryName: name,
-            categoryId: UUID(),
-            hexColor: color.asHex()
-        )
-        saveLink(link)
+        addCategory(name, color.asHex())
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] completion in
@@ -52,7 +46,6 @@ final class AddCategoryViewModel: ObservableObject {
 
 extension AddCategoryViewModel {
     static func make() -> Self {
-        let linkProvider = LinkProvider.make()
-        return .init(saveLink: linkProvider.saveLink)
+        .init(addCategory: CategoryProvider.make().addCategory)
     }
 }

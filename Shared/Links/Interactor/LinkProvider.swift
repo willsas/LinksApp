@@ -40,19 +40,9 @@ struct LinkProvider {
             .eraseToAnyPublisher()
     }
 
-    func getLinksWith(
-        categoryId: String,
-        returnAllLinkIfEmpty: Bool = true
-    ) -> AnyPublisher<[Link], Error> {
+    func getLinksWith(categoryId: String) -> AnyPublisher<[Link], Error> {
         getLinks()
-            .map {
-                let links = $0.filter { $0.categoryId.uuidString == categoryId }
-                if links.isEmpty && returnAllLinkIfEmpty {
-                    return $0
-                } else {
-                    return links
-                }
-            }
+            .map { $0.filter { $0.categoryId.uuidString == categoryId } }
             .eraseToAnyPublisher()
     }
 }

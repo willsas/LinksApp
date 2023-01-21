@@ -8,9 +8,14 @@ import SwiftUI
 struct CategoryProvider {
 
     private let getLinksLocal: () -> AnyPublisher<[Link], Error>
+    private let saveLinksLocal: (Link) -> AnyPublisher<Bool, Error>
 
-    init(getLinksLocal: @escaping () -> AnyPublisher<[Link], Error>) {
+    init(
+        getLinksLocal: @escaping () -> AnyPublisher<[Link], Error>,
+        saveLinksLocal: @escaping (Link) -> AnyPublisher<Bool, Error>
+    ) {
         self.getLinksLocal = getLinksLocal
+        self.saveLinksLocal = saveLinksLocal
     }
 
     func getCategories() -> AnyPublisher<[Category], Error> {
@@ -29,13 +34,26 @@ struct CategoryProvider {
             .eraseToAnyPublisher()
     }
 
+    func addCategory(name: String, hexColor: String) -> AnyPublisher<Bool, Error> {
+        let link = Link(
+            id: UUID(),
+            url: URL(string: "https://")!,
+            title: "",
+            desc: "",
+            categoryName: name,
+            categoryId: UUID(),
+            hexColor: hexColor
+        )
+        return saveLinksLocal(link).eraseToAnyPublisher()
+    }
+
     private func appendAllLinksCategoriesTo(links: [Link]) -> [Category] {
-        let links = links.filter { $0.title.isEmpty }
+        let links = links.filter { !$0.title.isEmpty }
 
         var categories = [Category]()
         categories.append(
             .init(
-                id: UUID(),
+                id: UUID.idForAllCategory(),
                 title: "All Links",
                 linkCount: links.count,
                 hexColor: LinksColor.black.asHex()
@@ -68,6 +86,9 @@ struct CategoryProvider {
 
 extension CategoryProvider {
     static func make() -> Self {
-        .init(getLinksLocal: GetLinksLocal<LinkCoreDataStorable>.make().get)
+        .init(
+            getLinksLocal: GetLinksLocal<LinkCoreDataStorable>.make().get,
+            saveLinksLocal: SaveLinkLocal<LinkCoreDataStorable>.make().save
+        )
     }
 }

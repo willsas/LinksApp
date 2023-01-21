@@ -23,6 +23,7 @@
 		FC833DB5293E4CD000E2AAE7 /* AddCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB4293E4CD000E2AAE7 /* AddCategoryViewModel.swift */; };
 		FC833DB7293E4E3800E2AAE7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB6293E4E3800E2AAE7 /* UIColor+Extension.swift */; };
 		FC833DB9293E552300E2AAE7 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC833DB8293E552300E2AAE7 /* Color+Extension.swift */; };
+		FC8F4364297C049700C4CCAF /* UUID+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F4363297C049700C4CCAF /* UUID+Extension.swift */; };
 		FC8F5787295B4F3B00740D63 /* CategoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F5786295B4F3B00740D63 /* CategoryProvider.swift */; };
 		FC8F5788295B4F3B00740D63 /* CategoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F5786295B4F3B00740D63 /* CategoryProvider.swift */; };
 		FC8F578A295B4FB000740D63 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8F5789295B4FB000740D63 /* Category.swift */; };
@@ -76,6 +77,7 @@
 		FC833DB4293E4CD000E2AAE7 /* AddCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewModel.swift; sourceTree = "<group>"; };
 		FC833DB6293E4E3800E2AAE7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FC833DB8293E552300E2AAE7 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		FC8F4363297C049700C4CCAF /* UUID+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UUID+Extension.swift"; sourceTree = "<group>"; };
 		FC8F5786295B4F3B00740D63 /* CategoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProvider.swift; sourceTree = "<group>"; };
 		FC8F5789295B4FB000740D63 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FCA7CABF293284CF00DD549C /* links-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "links-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,6 +324,7 @@
 			children = (
 				FC833DB6293E4E3800E2AAE7 /* UIColor+Extension.swift */,
 				FC833DB8293E552300E2AAE7 /* Color+Extension.swift */,
+				FC8F4363297C049700C4CCAF /* UUID+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				FCA7CAF529328A5E00DD549C /* MainView.swift in Sources */,
 				FCDCE8432932910C002B3088 /* LinkCoreData+Storable.swift in Sources */,
 				FCDCE84929329CD7002B3088 /* LinkProvider.swift in Sources */,
+				FC8F4364297C049700C4CCAF /* UUID+Extension.swift in Sources */,
 				FCDCE83D29328E45002B3088 /* CoreDataController.swift in Sources */,
 				FC768BD929439B2F00DCBF5E /* NewLinkView.swift in Sources */,
 				FCDCE83A29328CF9002B3088 /* Links.xcdatamodeld in Sources */,
@@ -578,7 +582,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"links-ios/Preview Content\"";
-				DEVELOPMENT_TEAM = SAJQCSB26S;
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -603,6 +607,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -662,7 +667,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"links-ios/Preview Content\"";
-				DEVELOPMENT_TEAM = SAJQCSB26S;
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -681,6 +686,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -742,7 +748,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_ASSET_PATHS = "\"links-macos/Preview Content\"";
-				DEVELOPMENT_TEAM = SAJQCSB26S;
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -824,7 +830,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"links-macos/Preview Content\"";
-				DEVELOPMENT_TEAM = SAJQCSB26S;
+				DEVELOPMENT_TEAM = YF2M6C4WM8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_PREVIEWS = YES;

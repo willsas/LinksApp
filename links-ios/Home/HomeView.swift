@@ -26,7 +26,15 @@ struct HomeView: View {
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(viewModel.categories) { category in
                             NavigationLink {
-                                ListLinkView.make(categoryId: category.id.uuidString)
+                                if category.id == .idForAllCategory() {
+                                    ListLinkView.make(linkType: .all)
+                                } else {
+                                    ListLinkView
+                                        .make(linkType: .category(
+                                            categoryId: category.id
+                                                .uuidString
+                                        ))
+                                }
                             } label: {
                                 CardView(
                                     title: category.title,
@@ -67,10 +75,12 @@ struct HomeView: View {
             viewModel.onAppear()
         }
 
-        .sheet(isPresented: $presentAddCategory) {
-            AddCategoryView.make()
-        }
-        
+        .sheet(
+            isPresented: $presentAddCategory,
+            onDismiss: { viewModel.refresh() },
+            content: { AddCategoryView.make() }
+        )
+
         .sheet(
             isPresented: $presentNewLink,
             onDismiss: { viewModel.refresh() },
