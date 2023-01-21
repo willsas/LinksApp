@@ -106,6 +106,10 @@ struct NewLinkView: View {
                     }
                 }
             }
+            .alert(viewModel.error, isPresented: $viewModel.errorPresented) {
+                Button("OK", role: .cancel) {}
+            }
+
             .onReceive(viewModel.$onDismiss) { onDismiss in
                 if onDismiss {
                     presentationMode.wrappedValue.dismiss()

@@ -7,9 +7,10 @@ import SwiftUI
 
 final class NewLinkViewModel: ObservableObject {
 
-    @MainActor @Published var categories = [Category]()
-    @MainActor @Published var error = ""
-    @MainActor @Published var onDismiss = false
+    @Published var categories = [Category]()
+    @Published var error = ""
+    @Published var errorPresented = false
+    @Published var onDismiss = false
 
     @Published var url = ""
     @Published var title = ""
@@ -31,7 +32,6 @@ final class NewLinkViewModel: ObservableObject {
         self.getCategories = getCategories
     }
 
-    @MainActor
     func onAppear() {
         getCategories()
             .receive(on: DispatchQueue.main)
@@ -47,21 +47,24 @@ final class NewLinkViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    @MainActor
     func refresh() {
         onAppear()
     }
 
-    @MainActor
     func getCategoryTitle() -> String {
         getCategory(withCategoryId: selectedCategoryId)?.title ?? "Select Category"
     }
 
-    @MainActor
     func add() {
-        guard let url = URL(string: url),
+        guard !url.isEmpty,
+              let url = URL(string: url),
+              UIApplication.shared.canOpenURL(url),
               let category = getCategory(withCategoryId: selectedCategoryId)
-        else { return }
+        else {
+            error = "Form is not valid"
+            errorPresented = true
+            return
+        }
         let link = Link(
             id: UUID(),
             url: url,
@@ -82,7 +85,6 @@ final class NewLinkViewModel: ObservableObject {
             }).store(in: &cancellables)
     }
 
-    @MainActor
     private func getCategory(withCategoryId: UUID) -> Category? {
         categories.first(where: { $0.id == selectedCategoryId })
     }
