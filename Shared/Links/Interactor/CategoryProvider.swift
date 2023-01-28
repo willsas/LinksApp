@@ -36,7 +36,7 @@ struct CategoryProvider {
 
     func addCategory(name: String, hexColor: String) -> AnyPublisher<Bool, Error> {
         let link = Link(
-            id: UUID(),
+            id: .idForEmptyLink(),
             url: URL(string: "https://")!,
             title: "",
             desc: "",
@@ -53,7 +53,7 @@ struct CategoryProvider {
         var categories = [Category]()
         categories.append(
             .init(
-                id: UUID.idForAllCategory(),
+                id: .idForAllCategory(),
                 title: "All Links",
                 linkCount: links.count,
                 hexColor: LinksColor.black.asHex()

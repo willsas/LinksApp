@@ -8,4 +8,8 @@ public extension UUID {
         //TODO: harusnya generate uuid lalu save ke core data biar gaada kemungkinan duplicate
         .init(uuidString: "68753A44-4D6F-1226-9C60-0050E4C00067")!
     }
+    static func idForEmptyLink() -> UUID {
+        //TODO: harusnya generate uuid lalu save ke core data biar gaada kemungkinan duplicate
+        .init(uuidString: "68753A44-4D6F-1226-9C60-0050E4C00068")!
+    }
 }

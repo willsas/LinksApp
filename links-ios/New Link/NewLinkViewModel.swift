@@ -61,7 +61,7 @@ final class NewLinkViewModel: ObservableObject {
               UIApplication.shared.canOpenURL(url),
               let category = getCategory(withCategoryId: selectedCategoryId)
         else {
-            error = "Form is not valid"
+            error = "Please complete the form"
             errorPresented = true
             return
         }

@@ -23,7 +23,7 @@ struct LinkProvider {
     func getLinks() -> AnyPublisher<[Link], Error> {
         getLinksLocal()
             .map {
-                $0.filter { !$0.title.isEmpty && !$0.desc.isEmpty }
+                $0.filter { $0.id != .idForEmptyLink() }
             }
             .eraseToAnyPublisher()
     }

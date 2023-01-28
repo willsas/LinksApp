@@ -70,9 +70,7 @@ struct HomeView: View {
                     }
                 }
             }
-        }
-        .onAppear {
-            viewModel.onAppear()
+            .onAppear { viewModel.onAppear() }
         }
 
         .sheet(

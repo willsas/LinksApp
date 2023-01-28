@@ -18,9 +18,9 @@ enum ListType {
 
 final class ListLinkViewModel: ObservableObject {
 
-    @MainActor @Published var listType = ListType.link([])
-    @MainActor @Published var navigationTitle = ""
-    @MainActor @Published var error = ""
+    @Published var listType = ListType.link([])
+    @Published var navigationTitle = ""
+    @Published var error = ""
 
     private let getLinksWithCategory: (String) -> AnyPublisher<[Link], Error>
     private let getAllLinks: () -> AnyPublisher<[Link], Error>
@@ -39,43 +39,57 @@ final class ListLinkViewModel: ObservableObject {
         self.deleteLink = deleteLink
     }
 
-    @MainActor
     func getLinks(type: ListLinkView.LinkType) {
         linkType = type
         switch type {
         case .all: getAll()
-        case .category(let categoryId): getWith(categoryId: categoryId)
+        case let .category(categoryId): getWith(categoryId: categoryId)
         }
     }
 
-    @MainActor
-    func deleteLink(_ indexSet: IndexSet) {
-        var idsToDelete = [UUID]()
-        switch listType {
-        case let .link(links):
-            idsToDelete = indexSet.map { links[$0].id }
-        case let .grouped(grouped):
-            let links = grouped.flatMap { $0.links}
-            idsToDelete = indexSet.map { links[$0].id }
-        }
-        
-        idsToDelete.forEach { id in
-            deleteLink(id.uuidString)
-                .sink(
-                    receiveCompletion: { [weak self] completion in
-                        if case let .failure(err) = completion {
-                            self?.error = err.localizedDescription
+    func deleteLinkWith(indexSet: IndexSet) {
+        if case let .link(links) = listType {
+            let idsToDelete = indexSet.map { links[$0].id }
+            idsToDelete.forEach { id in
+                deleteLink(id.uuidString)
+                    .sink(
+                        receiveCompletion: { [weak self] completion in
+                            if case let .failure(err) = completion {
+                                self?.error = err.localizedDescription
+                            }
+                        }, receiveValue: { [weak self] _ in
+                            guard let linkType = self?.linkType else { return }
+                            self?.getLinks(type: linkType)
                         }
-                    }, receiveValue: { [weak self] _ in
-                        guard let linkType = self?.linkType else { return }
-                        self?.getLinks(type: linkType)
-                    }
-                )
-                .store(in: &cancellables)
+                    )
+                    .store(in: &cancellables)
+            }
         }
     }
-    
-    @MainActor
+
+    func deleteLinkWith(groupedLinkId: String, indexSet: IndexSet) {
+        if case let .grouped(grouped) = listType {
+            guard let selectedGrouped = grouped.first(where: { $0.id == groupedLinkId })
+            else { return }
+
+            let idsToDelete = indexSet.map { selectedGrouped.links[$0].id }
+            idsToDelete.forEach { id in
+                deleteLink(id.uuidString)
+                    .sink(
+                        receiveCompletion: { [weak self] completion in
+                            if case let .failure(err) = completion {
+                                self?.error = err.localizedDescription
+                            }
+                        }, receiveValue: { [weak self] _ in
+                            guard let linkType = self?.linkType else { return }
+                            self?.getLinks(type: linkType)
+                        }
+                    )
+                    .store(in: &cancellables)
+            }
+        }
+    }
+
     private func getAll() {
         getAllLinks()
             .receive(on: DispatchQueue.main)
@@ -93,8 +107,7 @@ final class ListLinkViewModel: ObservableObject {
             )
             .store(in: &cancellables)
     }
-    
-    @MainActor
+
     private func getWith(categoryId: String) {
         getLinksWithCategory(categoryId)
             .receive(on: DispatchQueue.main)
@@ -130,7 +143,8 @@ extension ListLinkViewModel {
         return .init(
             getLinksWithCategory: linkProvider.getLinksWith(categoryId:),
             getAllLinks: linkProvider.getLinks,
-            deleteLink: linkProvider.deleteLink(id:))
+            deleteLink: linkProvider.deleteLink(id:)
+        )
     }
 }
 

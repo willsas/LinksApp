@@ -4,46 +4,73 @@
 import SwiftUI
 
 struct ListLinkView: View {
-    
+
     enum LinkType {
         case all
         case category(categoryId: String)
     }
-
+    
+    @Environment(\.openURL) private var openURL
     @ObservedObject var viewModel: ListLinkViewModel
+    @State var presentNewLink: Bool = false
     let linkType: LinkType
 
     var body: some View {
         ZStack {
             switch viewModel.listType {
-            case .link(let links):
+            case let .link(links):
                 List {
-                    ForEach(links) {
-                        LinkCell(link: $0)
+                    ForEach(links) { link in
+                        LinkCell(link: link)
+                            .onTapGesture { openURL(link.url) }
                     }
-                    .onDelete { viewModel.deleteLink($0) }
+                    .onDelete(perform: viewModel.deleteLinkWith(indexSet:))
                 }
-            case .grouped(let grouped):
+            case let .grouped(grouped):
                 List(grouped) { groupedLink in
                     Section {
                         ForEach(groupedLink.links) { link in
                             LinkCell(link: link)
+                                .onTapGesture { openURL(link.url) }
                         }
-                        .onDelete { viewModel.deleteLink($0) }
+                        .onDelete {
+                            viewModel.deleteLinkWith(groupedLinkId: groupedLink.id, indexSet: $0)
+                        }
                     } header: {
                         Text(groupedLink.title)
                             .font(.system(size: 22, weight: .bold, design: .rounded))
                             .padding(.bottom, 16)
                     }
                 }
-               
+
             }
         }
         .navigationTitle(viewModel.navigationTitle)
         .onAppear {
             viewModel.getLinks(type: linkType)
         }
-        
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                Spacer()
+            }
+            ToolbarItem(placement: .bottomBar) {
+                Button {
+                    presentNewLink.toggle()
+                } label: {
+                    HStack(alignment: .center) {
+                        Image(systemName: "plus.circle.fill")
+                        Text("New link")
+                            .font(.system(size: 16, weight: .semibold))
+                    }
+                }
+            }
+        }
+        .sheet(
+            isPresented: $presentNewLink,
+            onDismiss: { viewModel.getLinks(type: linkType) },
+            content: { NewLinkView.make() }
+        )
+
     }
 }
 
@@ -70,9 +97,10 @@ private struct LinkCell: View {
 
         }.padding([.top, .bottom], 16)
     }
-    
+
     private func getIconUrl() -> URL {
-        let stringUrl = "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=\(link.url)&size=24"
+        let stringUrl =
+            "https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=\(link.url)&size=24"
         return URL(string: stringUrl)!
     }
 }
