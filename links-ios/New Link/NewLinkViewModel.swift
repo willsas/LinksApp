@@ -96,6 +96,7 @@ extension NewLinkViewModel {
         return .init(
             getLinks: linkProvider.getLinks,
             saveLink: linkProvider.saveLink,
-            getCategories: CategoryProvider.make().getCategories)
+            getCategories: { CategoryProvider.make().getCategories(includeAllCategories: false) }
+        )
     }
 }

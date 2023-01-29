@@ -43,6 +43,6 @@ final class HomeViewModel: ObservableObject {
 
 extension HomeViewModel {
     static func make() -> Self {
-        return .init(getCategory: CategoryProvider.make().getCategories)
+        return .init(getCategory: { CategoryProvider.make().getCategories() })
     }
 }

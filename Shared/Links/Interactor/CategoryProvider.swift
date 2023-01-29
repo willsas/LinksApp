@@ -18,10 +18,13 @@ struct CategoryProvider {
         self.saveLinksLocal = saveLinksLocal
     }
 
-    func getCategories() -> AnyPublisher<[Category], Error> {
+    func getCategories(includeAllCategories: Bool = true) -> AnyPublisher<[Category], Error> {
         getLinksLocal()
             .map {
-                let allCategories = appendAllLinksCategoriesTo(links: $0)
+                var allCategories = [Category]()
+                if includeAllCategories {
+                    allCategories = appendAllLinksCategoriesTo(links: $0)
+                }
                 let groupedCategories = groupedCategories(links: $0)
 
                 return [

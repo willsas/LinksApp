@@ -17,33 +17,36 @@ struct ListLinkView: View {
 
     var body: some View {
         ZStack {
-            switch viewModel.listType {
-            case let .link(links):
-                List {
-                    ForEach(links) { link in
-                        LinkCell(link: link)
-                            .onTapGesture { openURL(link.url) }
-                    }
-                    .onDelete(perform: viewModel.deleteLinkWith(indexSet:))
-                }
-            case let .grouped(grouped):
-                List(grouped) { groupedLink in
-                    Section {
-                        ForEach(groupedLink.links) { link in
+            VStack {
+                switch viewModel.listType {
+                case let .link(links):
+                    List {
+                        ForEach(links) { link in
                             LinkCell(link: link)
                                 .onTapGesture { openURL(link.url) }
                         }
-                        .onDelete {
-                            viewModel.deleteLinkWith(groupedLinkId: groupedLink.id, indexSet: $0)
+                        .onDelete(perform: viewModel.deleteLinkWith(indexSet:))
+                    }
+                case let .grouped(grouped):
+                    List(grouped) { groupedLink in
+                        Section {
+                            ForEach(groupedLink.links) { link in
+                                LinkCell(link: link)
+                                    .onTapGesture { openURL(link.url) }
+                            }
+                            .onDelete {
+                                viewModel.deleteLinkWith(groupedLinkId: groupedLink.id, indexSet: $0)
+                            }
+                        } header: {
+                            Text(groupedLink.title)
+                                .font(.system(size: 22, weight: .bold, design: .rounded))
+                                .padding(.bottom, 16)
                         }
-                    } header: {
-                        Text(groupedLink.title)
-                            .font(.system(size: 22, weight: .bold, design: .rounded))
-                            .padding(.bottom, 16)
                     }
                 }
-
             }
+            
+            
         }
         .navigationTitle(viewModel.navigationTitle)
         .onAppear {
